@@ -35,6 +35,16 @@ assetic:
     debug:          "%kernel.debug%"
     use_controller: false
     bundles:        [ ]
+    # Assets
+    assets:
+        theme_js:
+            inputs:
+                - '@AppBundle/Resources/public/components/jquery/dist/jquery.js'
+                - '@AppBundle/Resources/public/components/bootstrap/dist/js/bootstrap.js'
+        theme_css:
+            inputs:
+                - '@AppBundle/Resources/public/components/components-font-awesome/css/font-awesome.css'
+                - '@AppBundle/Resources/public/components/bootstrap/dist/css/bootstrap.css'
     #java: /usr/bin/java
     filters:
         cssrewrite: ~

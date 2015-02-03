@@ -40,3 +40,4 @@
 .idea
 composer.lock
 src/Acme
+src/Feedme/AppBundle/Resources/public/components
