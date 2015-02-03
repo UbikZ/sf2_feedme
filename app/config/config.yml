@@ -5,7 +5,7 @@ imports:
 
 framework:
     #esi:             ~
-    #translator:      { fallbacks: ["%locale%"] }
+    translator:      { fallbacks: ["%locale%"] }
     secret:          "%secret%"
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -62,7 +62,13 @@ doctrine:
 
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"
-        auto_mapping: true
+        auto_mapping: false
+        mappings:
+            FOSUserBundle:
+            FeedmeUserBundle:
+                type: annotation
+                dir: %kernel.root_dir%/../src/Feedme/FeedmeUserBundle/Model/Entity
+                prefix: Feedme\FeedmeUserBundle\Model\Entity
 
 # Swiftmailer Configuration
 swiftmailer:
@@ -72,3 +78,20 @@ swiftmailer:
     password:  "%mailer_password%"
     port:      "%%mailer_port"
     spool:     { type: memory }
+
+# FOSUser Configuration
+fos_user:
+    db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
+    firewall_name: main
+    user_class: Feedme\FeedmeUserBundle\Model\Entity\User
+    registration:
+        confirmation:
+            enabled:  true
+            from_email:
+                address:      registration@feedme.com
+                sender_name:  Feedme Mailer Registration
+    resetting:
+        email:
+            from_email:
+                address:      resetting@feedme.com
+                sender_name:  Feedme Meiler Resetting

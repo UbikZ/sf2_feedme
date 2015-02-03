@@ -1,3 +1,12 @@
+# Feedme Application
 app:
     resource: @AppBundle/Controller/
     type:     annotation
+
+# FOS User Bundle
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+    prefix: /
+fos_user_group:
+    resource: "@FOSUserBundle/Resources/config/routing/group.xml"
+    prefix: /group

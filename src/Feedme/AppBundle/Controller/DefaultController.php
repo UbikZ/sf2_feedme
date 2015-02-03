@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Controller;
+namespace Feedme\AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -8,7 +8,12 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/app/example", name="homepage")
+     * @Route(
+     *      "/{_locale}",
+     *      requirements={"_locale" = "en|fr"},
+     *      defaults={"_locale" = "en"},
+     *      name="homepage"
+     * )
      */
     public function indexAction()
     {
