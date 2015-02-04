@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block javascripts %}
-    {% javascripts '@theme_js' output='js/compiled/main.js' %}<script src="{{ asset_url }}"></script>{% endjavascripts %}
+    {% javascripts '@theme_js' %}<script src="{{ asset_url }}"></script>{% endjavascripts %}
 {% endblock %}
 
 {% block stylesheets %}
