@@ -8,8 +8,8 @@ use FOS\UserBundle\Model\User as BaseUser;
 /**
  * Class User
  * @package Feedme\FeedmeUserBundle\Model\Entity
- * @ORM\Table(name="user")
  * @ORM\Entity
+ * @ORM\Table(name="user", indexes={})
  */
 class User extends BaseUser
 {
@@ -20,6 +20,18 @@ class User extends BaseUser
      * @var int
      */
     protected $id;
+
+    /**
+     * @ORM\Column(type="string")
+     * @var string
+     */
+    protected $society;
+
+    /**
+     * @ORM\Column(type="string")
+     * @var string
+     */
+    protected $comment;
 
     /**
      * @ORM\ManyToMany(targetEntity="Feedme\FeedmeUserBundle\Model\Entity\Group")
