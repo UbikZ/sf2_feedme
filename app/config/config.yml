@@ -80,6 +80,10 @@ doctrine:
                 type: annotation
                 dir: %kernel.root_dir%/../src/Feedme/FeedmeUserBundle/Model/Entity
                 prefix: Feedme\FeedmeUserBundle\Model\Entity
+            WallBundle:
+                type: annotation
+                dir: %kernel.root_dir%/../src/Feedme/WallBundle/Model/Entity
+                prefix: Feedme\WallBundle\Model\Entity
 
 # Swiftmailer Configuration
 swiftmailer:
