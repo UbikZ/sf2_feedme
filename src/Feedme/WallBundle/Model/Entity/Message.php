@@ -1,15 +1,15 @@
 <?php
 
-namespace Feedme\AppBunle\Model\Entity;
+namespace Feedme\WallBundle\Model\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Class Message
- * @package Feedme\AppBundle\Model\Entity
+ * @package Feedme\WallBundle\Model\Entity
  * @ORM\Entity
- * @ORM\Table(name="Message", indexes={})
+ * @ORM\Table(name="message", indexes={})
  */
 class Message
 {
@@ -22,19 +22,19 @@ class Message
     protected $id;
 
     /**
-     * @ManyToOne(targetEntity="Feedme\AppBundle\Model\Entity\Wall", inversedBy="wall")
-     * @JoinColumn(name="wall_id", referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="Wall", inversedBy="wall")
+     * @ORM\JoinColumn(name="wall_id", referencedColumnName="id")
      **/
     protected $wall;
 
     /**
-     * @OneToMany(targetEntity="Message", mappedBy="parent")
+     * @ORM\OneToMany(targetEntity="Message", mappedBy="parent")
      **/
     protected $children;
 
     /**
-     * @ManyToOne(targetEntity="Message", inversedBy="children")
-     * @JoinColumn(name="parent_id", referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="Message", inversedBy="children")
+     * @ORM\JoinColumn(name="parent_id", referencedColumnName="id")
      **/
     protected $parent;
 

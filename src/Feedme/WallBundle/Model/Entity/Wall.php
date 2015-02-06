@@ -1,13 +1,13 @@
 <?php
 
-namespace Feedme\AppBunle\Model\Entity;
+namespace Feedme\WallBundle\Model\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Class Wall
- * @package Feedme\AppBundle\Model\Entity
+ * @package Feedme\WallBundle\Model\Entity
  * @ORM\Entity
  * @ORM\Table(name="wall", indexes={})
  */
@@ -22,8 +22,8 @@ class Wall
     protected $id;
 
     /**
-     * @ORM\OneToMany(targetEntity="Feedme\AppBundle\Model\Entity\Message", mappedBy="wall")
-     * @®ar ArrayCollection
+     * @ORM\OneToMany(targetEntity="Message", mappedBy="wall")
+     * @var ArrayCollection
      */
     protected $messages;
 
