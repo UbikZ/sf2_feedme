@@ -22,7 +22,7 @@ class Message
     protected $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Wall", inversedBy="wall")
+     * @ORM\ManyToOne(targetEntity="Wall", inversedBy="messages")
      * @ORM\JoinColumn(name="wall_id", referencedColumnName="id")
      **/
     protected $wall;
