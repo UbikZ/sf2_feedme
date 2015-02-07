@@ -26,6 +26,8 @@
 /web/bundles/
 /web/uploads/
 /web/assetic/
+/web/images/
+/web/Resources/
 /web/css/
 /web/js/
 
