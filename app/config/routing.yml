@@ -3,6 +3,11 @@ app:
     resource: @AppBundle/Controller/
     type:     annotation
 
+# Launchng Front Bundle
+launcher:
+    resource: @LaunchingBundle/Controller/
+    type:     annotation
+
 # FOS User Bundle
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"

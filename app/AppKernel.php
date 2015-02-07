@@ -19,7 +19,9 @@ class AppKernel extends Kernel
             new FOS\UserBundle\FOSUserBundle(),
             new \Feedme\AppBundle\AppBundle(),
             new \Feedme\FeedmeUserBundle\FeedmeUserBundle(),
+            new \Feedme\LaunchingBundle\LaunchingBundle(),
             new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
+            new \Ornicar\GravatarBundle\OrnicarGravatarBundle()
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
