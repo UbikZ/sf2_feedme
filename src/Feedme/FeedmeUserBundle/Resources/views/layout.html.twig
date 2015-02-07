@@ -20,8 +20,60 @@
     {% endfor %}
 {% endfor %}
 
-<div>
-    {% block fos_user_content %}
-    {% endblock fos_user_content %}
+{% block javascripts_bottom %}
+    {% javascripts '@theme_js' %}<script src="{{ asset_url }}"></script>{% endjavascripts %}
+    {% javascripts '@global_js' %}<script src="{{ asset_url }}"></script>{% endjavascripts %}
+    {% javascripts '@FeedmeUserBundle/Resources/public/js/login.js' %}<script src="{{ asset_url }}"></script>{% endjavascripts %}
+    <script>
+        $(document).ready(function() {
+            App.init();
+            LoginV2.init();
+        });
+    </script>
+{% endblock %}
+
+{% block stylesheets %}
+    {% stylesheets '@theme_css' filter='cssrewrite' %}<link rel="stylesheet" href="{{ asset_url }}" />{% endstylesheets %}
+    {% stylesheets '@global_css' filter='cssrewrite' %}<link rel="stylesheet" href="{{ asset_url }}" />{% endstylesheets %}
+{% endblock %}
+
+<!-- begin #page-loader -->
+<div id="page-loader" class="fade in"><span class="spinner"></span></div>
+<!-- end #page-loader -->
+
+<div class="login-cover">
+    <div class="login-cover-image">
+        {% image '@LaunchingBundle/Resources/public/img/home-bg.jpg' %}
+        <img src="{{ asset_url }}" data-id="login-cover-image" alt=""/>
+        {% endimage %}
+    </div>
+    <div class="login-cover-bg"></div>
 </div>
+
+<!-- begin #page-container -->
+<div id="page-container" class="fade">
+    <!-- begin login -->
+    <div class="login login-v2" data-pageload-addclass="animated flipInX">
+        <!-- begin brand -->
+        <div class="login-header">
+            <div class="brand">
+                <span class="logo"></span> Color Admin
+                <small>responsive bootstrap 3 admin template</small>
+            </div>
+            <div class="icon">
+                <i class="fa fa-sign-in"></i>
+            </div>
+        </div>
+        <!-- end brand -->
+        <div class="login-content">
+            {% block fos_user_content %}
+            {% endblock fos_user_content %}
+            <div class="m-t-20">
+                {{'not_member'|trans({'%register_link%': url('fos_user_registration_register')})|raw }}
+            </div>
+        </div>
+    </div>
+    <!-- end login -->
+</div>
+<!-- end page container -->
 {% endblock body %}
