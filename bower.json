@@ -8,6 +8,7 @@
         "pace": "v1.0.2",
         "jquery-migrate": "1.2.1",
         "jquery.cookie": "v1.4.1",
-        "scrollMonitor": "v1.0.12"
+        "scrollMonitor": "v1.0.12",
+        "jquery-ui": "1.11.2"
     }
 }
