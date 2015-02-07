@@ -1,0 +1,65 @@
+.btn.btn-theme {
+    background: #6e7172;
+    border-color: #9d9fa2;
+    color: #fff;
+}
+.btn.btn-theme:hover,
+.btn.btn-theme:focus {
+    background: #545758;
+    border-color: #545758;
+}
+.header.navbar .navbar-nav > li.active > a, 
+.header.navbar .navbar-nav > li > a:hover, 
+.header.navbar .navbar-nav > li > a:focus,
+.header.navbar.navbar-default .navbar-nav > li.active > a, 
+.header.navbar.navbar-default .navbar-nav > li > a:hover, 
+.header.navbar.navbar-default .navbar-nav > li > a:focus,
+.header.navbar.navbar-transparent .navbar-nav > li.active > a, 
+.header.navbar.navbar-transparent .navbar-nav > li > a:hover, 
+.header.navbar.navbar-transparent .navbar-nav > li > a:focus,
+.header.navbar.navbar-inverse .navbar-nav > li.active > a, 
+.header.navbar.navbar-inverse .navbar-nav > li > a:hover, 
+.header.navbar.navbar-inverse .navbar-nav > li > a:focus,
+.header.navbar.navbar-transparent.navbar-small .navbar-nav > li.active > a,
+.header.navbar.navbar-transparent.navbar-small .navbar-nav > li > a:hover,
+.header.navbar.navbar-transparent.navbar-small .navbar-nav > li > a:focus,
+.text-theme,
+.navbar-nav .dropdown-menu > li.active > a,
+.navbar-nav .dropdown-menu > li > a:hover,
+.navbar-nav .dropdown-menu > li > a:focus,
+.pricing-table .price .price-number,
+a {
+    color: #9d9fa2;
+}
+
+.logo img {
+    width: 40px;
+    margin-right: 12px;
+    margin-top: -8px;
+}
+
+a:hover,
+a:focus {
+    color: #545758;
+}
+
+.pricing-table .highlight h3,
+.pace-progress {
+    background: #6e7172;
+}
+.pricing-table .highlight .price {
+    background: #9d9fa2;
+}
+
+.pace .pace-activity {
+    border-top-color: #c2c2c5;
+    border-left-color: #c2c2c5;
+}
+
+.footer {
+    border-color: #c2c2c5 #9d9fa2 #6e7172;
+}
+
+.progress-bar.progress-bar-success {
+    background: #545758
+}

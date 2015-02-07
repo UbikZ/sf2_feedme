@@ -1,0 +1,463 @@
+{% extends 'base.html.twig' %}
+
+{% block javascripts_head %}
+    {% javascripts '@AppBundle/Resources/public/components/pace/pace.min.js' %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}
+
+{% block javascripts_bottom %}
+    {% javascripts '@theme_js' %}<script src="{{ asset_url }}"></script>{% endjavascripts %}
+    {% javascripts '@launching_js' %}<script src="{{ asset_url }}"></script>{% endjavascripts %}
+    <script>
+        $(document).ready(function() {
+            App.init();
+        });
+    </script>
+{% endblock %}
+
+{% block stylesheets %}
+    {% stylesheets '@theme_css' filter='cssrewrite' %}<link rel="stylesheet" href="{{ asset_url }}" />{% endstylesheets %}
+    {% stylesheets '@launching_css' filter='cssrewrite' %}<link rel="stylesheet" href="{{ asset_url }}" />{% endstylesheets %}
+{% endblock %}
+
+{% block body %}
+<!-- begin #page-container -->
+<div id="page-container" class="fade">
+    <!-- begin #header -->
+    <div id="header" class="header navbar navbar-transparent navbar-fixed-top">
+        <!-- begin container -->
+        <div class="container">
+            <!-- begin navbar-header -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#header-navbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="/" class="navbar-brand">
+                    <span class="logo">
+                        {% image '@AppBundle/Resources/public/img/feedme.png' %}
+                        <img src="{{ asset_url }}" alt="FeedMe" />
+                        {% endimage %}
+                    </span>
+                    <span class="brand-text">
+                        <span class="text-theme">Feed</span>Me
+                    </span>
+                </a>
+            </div>
+            <!-- end navbar-header -->
+            <!-- begin navbar-collapse -->
+            <div class="collapse navbar-collapse" id="header-navbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active dropdown">
+                        <a href="#home" data-click="scroll-to-target" data-toggle="dropdown">
+                            {{ 'home.label'|trans|capitalize }}
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-left animated fadeInDown">
+                            <li><a href="{{ url('fos_user_security_login') }}">{{ 'home.signin'|trans }}</a></li>
+                            <li><a href="{{ url('fos_user_registration_register') }}">{{ 'home.login'|trans }}</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#about" data-click="scroll-to-target">{{ 'about.label'|trans|capitalize }}</a></li>
+                    <li><a href="#team" data-click="scroll-to-target">{{ 'team.label'|trans|capitalize }}</a></li>
+                    <li><a href="#service" data-click="scroll-to-target">{{ 'service.label'|trans|capitalize }}</a></li>
+                    <li><a href="#contact" data-click="scroll-to-target">{{ 'contact.label'|trans|capitalize }}</a></li>
+                </ul>
+            </div>
+            <!-- end navbar-collapse -->
+        </div>
+        <!-- end container -->
+    </div>
+    <!-- end #header -->
+
+    <!-- begin #home -->
+    <div id="home" class="content has-bg home">
+        <!-- begin content-bg -->
+        <div class="content-bg">
+            {% image '@LaunchingBundle/Resources/public/img/home-bg.jpg' %}
+                <img src="{{ asset_url }}" alt="Home" />
+            {% endimage %}
+        </div>
+        <!-- end content-bg -->
+        <!-- begin container -->
+        <div class="container home-content">
+            <h1>{{ 'home.welcome'|trans }}</h1>
+            <h3>{{ 'home.resume'|trans }}</h3>
+            <p>{{ 'home.desc'|trans|nl2br }}</p>
+            <a href="#" class="btn btn-theme">{{ 'home.signin'|trans }}</a>
+            <a href="#" class="btn btn-outline">{{ 'home.login'|trans }}</a><br />
+            <br />
+        </div>
+        <!-- end container -->
+    </div>
+    <!-- end #home -->
+
+    <!-- begin #about -->
+    <div id="about" class="content" data-scrollview="true">
+        <!-- begin container -->
+        <div class="container" data-animation="true" data-animation-type="fadeInDown">
+            <h2 class="content-title">{{ 'about.label'|trans }}</h2>
+            <p class="content-desc">{{ 'about.desc'|trans|nl2br }}</p>
+            <!-- begin row -->
+            <div class="row">
+                <!-- begin col-4 -->
+                <div class="col-md-4 col-sm-6">
+                    <!-- begin about -->
+                    <div class="about">
+                        <h3>{{ 'about.story.title'|trans }}</h3>
+                        <p>{{ 'about.story.desc'|trans|nl2br }}</p>
+                    </div>
+                    <!-- end about -->
+                </div>
+                <!-- end col-4 -->
+                <!-- begin col-4 -->
+                <div class="col-md-4 col-sm-6">
+                    <h3>{{ 'about.phylo.title'|trans }}</h3>
+                    <!-- begin about-author -->
+                    <div class="about-author">
+                        <div class="quote bg-silver">
+                            <i class="fa fa-quote-left"></i>
+                            <h3>{{ 'about.phylo.quote'|trans|nl2br }}</h3>
+                            <i class="fa fa-quote-right"></i>
+                        </div>
+                        <div class="author">
+                            <div class="image">
+                                <img src="{{ gravatar('gabrielmalet@gmail.com') }}" />
+                            </div>
+                            <div class="info">
+                                {{ 'author.name'|trans }}
+                                <small>{{ 'author.job'|trans }}</small>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end about-author -->
+                </div>
+                <!-- end col-4 -->
+                <!-- begin col-4 -->
+                <div class="col-md-4 col-sm-12">
+                    <h3>{{ 'about.experience.title'|trans }}</h3>
+                    <!-- begin skills -->
+                    <div class="skills">
+                        <div class="skills-name">{{ 'about.experience.skills.frontend'|trans }}</div>
+                        <div class="progress progress-striped">
+                            <div class="progress-bar progress-bar-success" style="width: 95%">
+                                <span class="progress-number">95%</span>
+                            </div>
+                        </div>
+                        <div class="skills-name">{{ 'about.experience.skills.programming'|trans }}</div>
+                        <div class="progress progress-striped">
+                            <div class="progress-bar progress-bar-success" style="width: 90%">
+                                <span class="progress-number">90%</span>
+                            </div>
+                        </div>
+                        <div class="skills-name">{{ 'about.experience.skills.dbdesign'|trans }}</div>
+                        <div class="progress progress-striped">
+                            <div class="progress-bar progress-bar-success" style="width: 85%">
+                                <span class="progress-number">85%</span>
+                            </div>
+                        </div>
+                        <div class="skills-name">{{ 'about.experience.skills.server'|trans }}</div>
+                        <div class="progress progress-striped">
+                            <div class="progress-bar progress-bar-success" style="width: 91%">
+                                <span class="progress-number">91%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end skills -->
+                </div>
+                <!-- end col-4 -->
+            </div>
+            <!-- end row -->
+        </div>
+        <!-- end container -->
+    </div>
+    <!-- end #about -->
+
+    <!-- begin #milestone -->
+    <div id="milestone" class="content bg-black-darker has-bg" data-scrollview="true">
+        <!-- begin content-bg -->
+        <div class="content-bg">
+            {% image '@LaunchingBundle/Resources/public/img/milestone-bg.jpg' %}
+            <img src="{{ asset_url }}" alt="Wilestone" />
+            {% endimage %}
+        </div>
+        <!-- end content-bg -->
+        <!-- begin container -->
+        <div class="container">
+            <!-- begin row -->
+            <div class="row">
+                <!-- begin col-3 -->
+                <div class="col-md-3 col-sm-3 milestone-col">
+                    <div class="milestone">
+                        <div class="number" data-animation="true" data-animation-type="number" data-final-number="2009">2,009</div>
+                        <div class="title">{{ 'infos.members'|trans }}</div>
+                    </div>
+                </div>
+                <!-- end col-3 -->
+                <!-- begin col-3 -->
+                <div class="col-md-3 col-sm-3 milestone-col">
+                    <div class="milestone">
+                        <div class="number" data-animation="true" data-animation-type="number" data-final-number="1292">1,292</div>
+                        <div class="title">{{ 'infos.watchers'|trans }}</div>
+                    </div>
+                </div>
+                <!-- end col-3 -->
+                <!-- begin col-3 -->
+                <div class="col-md-3 col-sm-3 milestone-col">
+                    <div class="milestone">
+                        <div class="number" data-animation="true" data-animation-type="number" data-final-number="270">270</div>
+                        <div class="title">{{ 'infos.starts'|trans }}</div>
+                    </div>
+                </div>
+                <!-- end col-3 -->
+                <!-- begin col-3 -->
+                <div class="col-md-3 col-sm-3 milestone-col">
+                    <div class="milestone">
+                        <div class="number" data-animation="true" data-animation-type="number" data-final-number="129">129</div>
+                        <div class="title">{{ 'infos.forks'|trans }}</div>
+                    </div>
+                </div>
+                <!-- end col-3 -->
+            </div>
+            <!-- end row -->
+        </div>
+        <!-- end container -->
+    </div>
+    <!-- end #milestone -->
+
+    <!-- begin #team -->
+    <div id="team" class="content" data-scrollview="true">
+        <!-- begin container -->
+        <div class="container">
+            <h2 class="content-title">{{ 'team.title'|trans }}</h2>
+            <p class="content-desc">{{ 'team.desc'|trans }}</p>
+            <!-- begin row -->
+            <div class="row">
+                <!-- begin col-4 -->
+                <div class="col-md-4 col-sm-4"></div>
+                <!-- end col-4 -->
+                <!-- begin col-4 -->
+                <div class="col-md-4 col-sm-4">
+                    <!-- begin team -->
+                    <div class="team">
+                        <div class="image" data-animation="true" data-animation-type="flipInX">
+                            <img src="{{ gravatar('gabrielmalet@gmail.com') }}" />
+                        </div>
+                        <div class="info">
+                            <h3 class="name">{{ 'author.name'|trans }}</h3>
+                            <div class="title text-theme">{{ 'author.job'|trans }}</div>
+                            <p>{{ 'author.desc'|trans|nl2br }}</p>
+                            <div class="social">
+                                <a href="#"><i class="fa fa-facebook fa-lg fa-fw"></i></a>
+                                <a href="#"><i class="fa fa-twitter fa-lg fa-fw"></i></a>
+                                <a href="#"><i class="fa fa-google-plus fa-lg fa-fw"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end team -->
+                </div>
+                <!-- end col-4 -->
+                <!-- begin col-4 -->
+                <div class="col-md-4 col-sm-4"></div>
+                <!-- end col-4 -->
+            </div>
+            <!-- end row -->
+        </div>
+        <!-- end container -->
+    </div>
+    <!-- end #team -->
+
+    <!-- begin #quote -->
+    <div id="quote" class="content bg-black-darker has-bg" data-scrollview="true">
+        <!-- begin content-bg -->
+        <div class="content-bg">
+            {% image '@LaunchingBundle/Resources/public/img/quote-bg.jpg' %}
+            <img src="{{ asset_url }}" alt="Quote" />
+            {% endimage %}
+        </div>
+        <!-- end content-bg -->
+        <!-- begin container -->
+        <div class="container" data-animation="true" data-animation-type="fadeInLeft">
+            <!-- begin row -->
+            <div class="row">
+                <!-- begin col-12 -->
+                <div class="col-md-12 quote">
+                    <i class="fa fa-quote-left"></i>
+                    {{ 'author.quote'|trans|nl2br }}
+                    <i class="fa fa-quote-right"></i>
+                    <small>{{ 'author.name'|trans }}, {{ 'author.job'|trans }}</small>
+                </div>
+                <!-- end col-12 -->
+            </div>
+            <!-- end row -->
+        </div>
+        <!-- end container -->
+    </div>
+    <!-- end #quote -->
+
+    <!-- begin #service -->
+    <div id="service" class="content" data-scrollview="true">
+        <!-- begin container -->
+        <div class="container">
+            <h2 class="content-title">{{ 'service.title'|trans }}</h2>
+            <p class="content-desc">{{ 'service.desc'|trans }}</p>
+            <!-- begin row -->
+            <div class="row">
+                <!-- begin col-4 -->
+                <div class="col-md-4 col-sm-4">
+                    <div class="service">
+                        <div class="icon bg-theme" data-animation="true" data-animation-type="bounceIn"><i class="fa fa-cog"></i></div>
+                        <div class="info">
+                            <h4 class="title">Easy to Customize</h4>
+                            <p class="desc">Duis in lorem placerat, iaculis nisi vitae, ultrices tortor. Vestibulum molestie ipsum nulla. Maecenas nec hendrerit eros, sit amet maximus leo.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- end col-4 -->
+                <!-- begin col-4 -->
+                <div class="col-md-4 col-sm-4">
+                    <div class="service">
+                        <div class="icon bg-theme" data-animation="true" data-animation-type="bounceIn"><i class="fa fa-paint-brush"></i></div>
+                        <div class="info">
+                            <h4 class="title">Clean & Careful Design</h4>
+                            <p class="desc">Etiam nulla turpis, gravida et orci ac, viverra commodo ipsum. Donec nec mauris faucibus, congue nisi sit amet, lobortis arcu.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- end col-4 -->
+                <!-- begin col-4 -->
+                <div class="col-md-4 col-sm-4">
+                    <div class="service">
+                        <div class="icon bg-theme" data-animation="true" data-animation-type="bounceIn"><i class="fa fa-file"></i></div>
+                        <div class="info">
+                            <h4 class="title">Well Documented</h4>
+                            <p class="desc">Ut vel laoreet tortor. Donec venenatis ex velit, eget bibendum purus accumsan cursus. Curabitur pulvinar iaculis diam.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- end col-4 -->
+            </div>
+            <!-- end row -->
+            <!-- begin row -->
+            <div class="row">
+                <!-- begin col-4 -->
+                <div class="col-md-4 col-sm-4">
+                    <div class="service">
+                        <div class="icon bg-theme" data-animation="true" data-animation-type="bounceIn"><i class="fa fa-code"></i></div>
+                        <div class="info">
+                            <h4 class="title">Re-usable Code</h4>
+                            <p class="desc">Aenean et elementum dui. Aenean massa enim, suscipit ut molestie quis, pretium sed orci. Ut faucibus egestas mattis.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- end col-4 -->
+                <!-- begin col-4 -->
+                <div class="col-md-4 col-sm-4">
+                    <div class="service">
+                        <div class="icon bg-theme" data-animation="true" data-animation-type="bounceIn"><i class="fa fa-shopping-cart"></i></div>
+                        <div class="info">
+                            <h4 class="title">Online Shop</h4>
+                            <p class="desc">Quisque gravida metus in sollicitudin feugiat. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- end col-4 -->
+                <!-- begin col-4 -->
+                <div class="col-md-4 col-sm-4">
+                    <div class="service">
+                        <div class="icon bg-theme" data-animation="true" data-animation-type="bounceIn"><i class="fa fa-heart"></i></div>
+                        <div class="info">
+                            <h4 class="title">Free Support</h4>
+                            <p class="desc">Integer consectetur, massa id mattis tincidunt, sapien erat malesuada turpis, nec vehicula lacus felis nec libero. Fusce non lorem nisl.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- end col-4 -->
+            </div>
+            <!-- end row -->
+        </div>
+        <!-- end container -->
+    </div>
+    <!-- end #about -->
+
+    <!-- beign #action-box -->
+    <div id="action-box" class="content has-bg" data-scrollview="true">
+        <!-- begin content-bg -->
+        <div class="content-bg">
+            {% image '@LaunchingBundle/Resources/public/img/action-bg.jpg' %}
+            <img src="{{ asset_url }}" alt="Action" />
+            {% endimage %}
+        </div>
+        <!-- end content-bg -->
+        <!-- begin container -->
+        <div class="container" data-animation="true" data-animation-type="fadeInRight">
+            <!-- begin row -->
+            <div class="row action-box">
+                <!-- begin col-9 -->
+                <div class="col-md-9 col-sm-9">
+                    <div class="icon-large text-theme">
+                        <i class="fa fa-binoculars"></i>
+                    </div>
+                    <h3>CHECK OUT OUR FEEDME SOURCE CODE ON GITHUB!</h3>
+                    <p>
+                        we are fully convinced that this project may be useful for some people, so we decided to give avon public access in order to monitor the developments on github.
+                    </p>
+                </div>
+                <!-- end col-9 -->
+                <!-- begin col-3 -->
+                <div class="col-md-3 col-sm-3">
+                    <a href="https://github.com/UbikZ/sf2_feedme" class="btn btn-outline btn-block" target="_blank">
+                        Fork me on Github!
+                    </a>
+                </div>
+                <!-- end col-3 -->
+            </div>
+            <!-- end row -->
+        </div>
+        <!-- end container -->
+    </div>
+    <!-- end #action-box -->
+
+    <!-- begin #contact -->
+    <div id="contact" class="content bg-silver-lighter" data-scrollview="true">
+        <!-- begin container -->
+        <div class="container">
+            <h2 class="content-title">Contact Us</h2>
+            <p class="content-desc">
+                You can contact us at <a HREF="mailto:support@ubikz.com">support@ubikz.com</a> for any support.
+            </p>
+        </div>
+        <!-- end container -->
+    </div>
+    <!-- end #contact -->
+
+    <!-- begin #footer -->
+    <div id="footer" class="footer">
+        <div class="container">
+            <div class="footer-brand">
+                <span class="logo">
+                {% image '@AppBundle/Resources/public/img/feedme.png' %}
+                <img src="{{ asset_url }}" alt="FeedMe" />
+                {% endimage %}
+                </span>
+                <span class="brand-text">
+                    <span class="text-theme">Feed</span>Me
+                </span>
+            </div>
+            <p>
+                &copy; Copyright FeedMe 2015 <br />
+            </p>
+            <p class="social-list">
+                <a href="#"><i class="fa fa-facebook fa-fw"></i></a>
+                <a href="#"><i class="fa fa-github fa-fw"></i></a>
+                <a href="#"><i class="fa fa-twitter fa-fw"></i></a>
+                <a href="#"><i class="fa fa-google-plus fa-fw"></i></a>
+            </p>
+        </div>
+    </div>
+    <!-- end #footer -->
+</div>
+<!-- end #page-container -->
+{% endblock %}

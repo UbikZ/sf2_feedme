@@ -1,0 +1,66 @@
+home:
+    label:  home
+    login:  Log-In
+    signin: Sign-In
+    welcome:  Welcome to Feedme
+    resume: Social Feeds Media
+    desc: |
+        We have created an social media application to share source feeds over the world.
+        Each feed will be extract and will fill your waiting list.
+        You can manage, follow, like and make friends on FeedMe!
+about:
+    label:  about
+    title:  About Us
+    desc: about_us_description
+    story:
+        title:  Our Story
+        desc: |
+            Duis in lorem placerat, iaculis nisi vitae, ultrices tortor.
+            Vestibulum molestie ipsum nulla.
+            Maecenas nec hendrerit eros, sit amet maximus leo.
+
+            Aenean et elementum dui.
+            Aenean massa enim, suscipit ut molestie quis, pretium sed orci.
+            Ut faucibus egestas mattis.
+    phylo:
+        title:  Our Philosophy
+        quote: |
+            We work harder,
+            to provide the best quality
+    experience:
+        title:  Our Experience
+        skills:
+            frontend: Front End
+            programming: Programming
+            dbdesign: Database Design
+            server: Server Maintenance
+author:
+    name: Gabriel Malet
+    job:  Lead Developer
+    desc:  |
+        Duis in lorem placerat, iaculis nisi vitae, ultrices tortor.
+        Vestibulum molestie ipsum nulla.
+        Maecenas nec hendrerit eros, sit amet maximus leo.
+    quote: |
+        Passion leads to quality, quality leads to performance,
+        performance leads to success!
+infos:
+    members: Registered Members
+    watchers: Watchers
+    stars:  Stars
+    forks:  Forks
+team:
+    label:  team
+    title:  Our Team
+    desc: This team is responsible for maintaining the application by proposing new developments while correcting a maximum of user feedback.
+
+service:
+    label:  services
+    title:  Our service
+    desc: |
+        Aenean et elementum dui.
+        Aenean massa enim, suscipit ut molestie quis, pretium sed orci.
+        Ut faucibus egestas mattis.
+
+contact:
+    label:  contact
