@@ -52,15 +52,57 @@ infos:
 team:
     label:  team
     title:  Our Team
-    desc: This team is responsible for maintaining the application by proposing new developments while correcting a maximum of user feedback.
+    desc: |
+        This team is responsible for maintaining the application by proposing new developments while
+        correcting a maximum of user feedback.
 
 service:
     label:  services
-    title:  Our service
+    title:  Our services
     desc: |
         Aenean et elementum dui.
         Aenean massa enim, suscipit ut molestie quis, pretium sed orci.
         Ut faucibus egestas mattis.
+    setting:
+        title:  Easy to use
+        desc: |
+            Duis in lorem placerat, iaculis nisi vitae, ultrices tortor.
+            Vestibulum molestie ipsum nulla.
+            Maecenas nec hendrerit eros, sit amet maximus leo.
+    design:
+        title:  Clean design
+        desc: |
+            Duis in lorem placerat, iaculis nisi vitae, ultrices tortor.
+            Vestibulum molestie ipsum nulla.
+            Maecenas nec hendrerit eros, sit amet maximus leo.
+    document:
+        title:  Well documented
+        desc: |
+            Duis in lorem placerat, iaculis nisi vitae, ultrices tortor.
+            Vestibulum molestie ipsum nulla.
+            Maecenas nec hendrerit eros, sit amet maximus leo.
+    code:
+        title:  Public source code
+        desc: |
+            Duis in lorem placerat, iaculis nisi vitae, ultrices tortor.
+            Vestibulum molestie ipsum nulla.
+            Maecenas nec hendrerit eros, sit amet maximus leo.
+    support:
+        title:  Free Support
+        desc: |
+            Duis in lorem placerat, iaculis nisi vitae, ultrices tortor.
+            Vestibulum molestie ipsum nulla.
+            Maecenas nec hendrerit eros, sit amet maximus leo.
+
+
+code:
+    title:  CHECK OUT OUR FEEDME SOURCE CODE ON GITHUB!
+    desc: |
+        We are fully convinced that this project may be useful for some people,
+        so we decided to give avon public access in order to monitor the developments on github.
+    fork: Fork me on Github!
 
 contact:
     label:  contact
+    title:  Contact Us
+    desc: You can contact us at <a href="mailto:support@ubikz.com">support@ubikz.com</a> for any support.
