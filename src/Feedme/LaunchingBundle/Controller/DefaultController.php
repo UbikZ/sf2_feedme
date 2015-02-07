@@ -12,7 +12,12 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/", name="homepage")
+     * @Route(
+     *      "/{_locale}",
+     *      requirements={"_locale" = "en|fr"},
+     *      defaults={"_locale" = "en"},
+     *      name="homepage"
+     * )
      */
     public function indexAction()
     {
