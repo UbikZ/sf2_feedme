@@ -35,7 +35,7 @@ twig:
 assetic:
     debug:          "%kernel.debug%"
     use_controller: false
-    bundles:        ['LaunchingBundle']
+    bundles:        ['LaunchingBundle', 'FeedmeUserBundle']
     # Assets
     assets:
         # Fonts (hack)
@@ -63,20 +63,28 @@ assetic:
                 - '@AppBundle/Resources/public/components/jquery/dist/jquery.min.js'
                 - '@AppBundle/Resources/public/components/jquery-migrate/jquery-migrate.min.js'
                 - '@AppBundle/Resources/public/components/bootstrap/dist/js/bootstrap.min.js'
+                - '@AppBundle/Resources/public/components/jquery-ui/jquery-ui.min.js'
         theme_css:
             inputs:
                 - '@AppBundle/Resources/public/components/components-font-awesome/css/font-awesome.min.css'
                 - '@AppBundle/Resources/public/components/bootstrap/dist/css/bootstrap.min.css'
+                - '@AppBundle/Resources/public/components/animate.css/animate.min.css'
+        global_js:
+            inputs:
+                - '@AppBundle/Resources/public/js/app.js'
+        global_css:
+            inputs:
+                - '@AppBundle/Resources/public/css/style.css'
+                - '@AppBundle/Resources/public/css/style-responsive.css'
+                - '@AppBundle/Resources/public/css/theme/default.css'
         launching_js:
             inputs:
-                #- '@AppBundle/Resources/public/components/jquery.cookie/jquery.cookie.js'
                 - '@AppBundle/Resources/public/components/scrollMonitor/scrollMonitor.js'
                 - '@LaunchingBundle/Resources/public/js/apps.js'
         launching_css:
             inputs:
                 - '@LaunchingBundle/Resources/public/css/style.css'
                 - '@LaunchingBundle/Resources/public/css/style-responsive.css'
-                - '@AppBundle/Resources/public/components/animate.css/animate.min.css'
                 - '@LaunchingBundle/Resources/public/css/theme/default.css'
 
     #java: /usr/bin/java
