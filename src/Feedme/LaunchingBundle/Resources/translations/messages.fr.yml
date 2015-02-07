@@ -1,22 +1,22 @@
 home:
-    label:  home
-    login:  Log-In
-    signin: Sign-In
-    welcome:  Welcome to Feedme
-    resume: Social Feeds Media
+    label:  Accueil
+    login:  Connectez vous!
+    signin: Enregistrez vous!
+    welcome:  Bienvenu sur Feedme
+    resume: Réseau Social de Flux
     desc: |
         We have created an social media application to share source feeds over the world.
         Each feed will be extract and will fill your waiting list.
         You can manage, follow, like and make friends on FeedMe!
 about:
-    label:  about
-    title:  About Us
+    label:  A propos
+    title:  A propos de nous
     desc: |
         Duis in lorem placerat, iaculis nisi vitae, ultrices tortor.
         Vestibulum molestie ipsum nulla.
         Maecenas nec hendrerit eros, sit amet maximus leo.
     story:
-        title:  Our Story
+        title:  Notre histoire
         desc: |
             Duis in lorem placerat, iaculis nisi vitae, ultrices tortor.
             Vestibulum molestie ipsum nulla.
@@ -26,17 +26,17 @@ about:
             Aenean massa enim, suscipit ut molestie quis, pretium sed orci.
             Ut faucibus egestas mattis.
     phylo:
-        title:  Our Philosophy
+        title:  Notre Phylosophie
         quote: |
-            We work harder,
-            to provide the best quality
+            Nous travaillons plus dur,
+            pour vous fournir la meilleur qualité
     experience:
-        title:  Our Experience
+        title:  Notre Expérience
         skills:
             frontend: Front End
-            programming: Programming
-            dbdesign: Database Design
-            server: Server Maintenance
+            programming: Programmation
+            dbdesign: Modélisation de base de données
+            server: Maintenance Serveur
 author:
     name: Gabriel Malet
     job:  Lead Developer
@@ -45,53 +45,53 @@ author:
         Vestibulum molestie ipsum nulla.
         Maecenas nec hendrerit eros, sit amet maximus leo.
     quote: |
-        Passion leads to quality, quality leads to performance,
-        performance leads to success!
+        La passion mène à la qualité, la qualité mène à la performance,
+        la performance mène au succès!
 infos:
-    members: Registered Members
+    members: Membres enregistrés
     watchers: Watchers
     stars:  Stars
     forks:  Forks
 team:
-    label:  team
-    title:  Our Team
+    label:  équipe
+    title:  Notre équipe
     desc: |
-        This team is responsible for maintaining the application by proposing new developments while
-        correcting a maximum of user feedback.
+        Cette équipe est responsable de la maintenance de l'application en proposant de nouveaux développments tout en
+        corrigeant un maximum de retours utilisateurs
 
 service:
     label:  services
-    title:  Our services
+    title:  Nos services
     desc: |
         Aenean et elementum dui.
         Aenean massa enim, suscipit ut molestie quis, pretium sed orci.
         Ut faucibus egestas mattis.
     setting:
-        title:  Easy to use
-        desc: |
+        title:  Facile d'utilisation
+        desc: |
             Duis in lorem placerat, iaculis nisi vitae, ultrices tortor.
             Vestibulum molestie ipsum nulla.
             Maecenas nec hendrerit eros, sit amet maximus leo.
     design:
-        title:  Clean design
+        title:  Design épuré
         desc: |
             Duis in lorem placerat, iaculis nisi vitae, ultrices tortor.
             Vestibulum molestie ipsum nulla.
             Maecenas nec hendrerit eros, sit amet maximus leo.
     document:
-        title:  Well documented
+        title:  Bien documenté
         desc: |
             Duis in lorem placerat, iaculis nisi vitae, ultrices tortor.
             Vestibulum molestie ipsum nulla.
             Maecenas nec hendrerit eros, sit amet maximus leo.
     code:
-        title:  Public source code
+        title:  Code source public
         desc: |
             Duis in lorem placerat, iaculis nisi vitae, ultrices tortor.
             Vestibulum molestie ipsum nulla.
             Maecenas nec hendrerit eros, sit amet maximus leo.
     support:
-        title:  Free Support
+        title:  Support Gratuit
         desc: |
             Duis in lorem placerat, iaculis nisi vitae, ultrices tortor.
             Vestibulum molestie ipsum nulla.
@@ -99,13 +99,14 @@ service:
 
 
 code:
-    title:  CHECK OUT OUR FEEDME SOURCE CODE ON GITHUB!
+    title:  VOUS POUVEZ REGARDER LE CODE SOURCE SUR GITHUB!
     desc: |
-        We are fully convinced that this project may be useful for some people,
-        so we decided to give avon public access in order to monitor the developments on github.
-    fork: Fork me on Github!
+        Nous sommes pleinement convaincu que ce projet devrait être utile à d'autres personnes,
+        c'est pourquoi nous avons décidé de donner un accès public dans le but de gérer les
+        développements sur github.
+    fork: Forkez moi sur Github!
 
 contact:
     label:  contact
-    title:  Contact Us
-    desc: You can contact us at <a href="mailto:support@ubikz.com">support@ubikz.com</a> for any support.
+    title:  Contactez nous!
+    desc: Vous pouvez nous contacter à <a href="mailto:support@ubikz.com">support@ubikz.com</a> si vous avez besoin.
