@@ -35,17 +35,50 @@ twig:
 assetic:
     debug:          "%kernel.debug%"
     use_controller: false
-    bundles:        [ ]
+    bundles:        ['LaunchingBundle']
     # Assets
     assets:
+        # Fonts (hack)
+        font-awesome-otf:
+            inputs: '@AppBundle/Resources/public/components/components-font-awesome/fonts/FontAwesome.otf'
+            output: 'Resources/public/components/components-font-awesome/fonts/FontAwesome.otf'
+        font-awesome-eot:
+            inputs: '@AppBundle/Resources/public/components/components-font-awesome/fonts/fontawesome-webfont.eot'
+            output: '/Resources/public/components/components-font-awesome/fonts/fontawesome-webfont.eot'
+        font-awesome-svg:
+            inputs: '@AppBundle/Resources/public/components/components-font-awesome/fonts/fontawesome-webfont.svg'
+            output: '/Resources/public/components/components-font-awesome/fonts/fontawesome-webfont.svg'
+        font-awesome-ttf:
+            inputs: '@AppBundle/Resources/public/components/components-font-awesome/fonts/fontawesome-webfont.ttf'
+            output: '/Resources/public/components/components-font-awesome/fonts/fontawesome-webfont.ttf'
+        font-awesome-woff:
+            inputs: '@AppBundle/Resources/public/components/components-font-awesome/fonts/fontawesome-webfont.woff'
+            output: '/Resources/public/components/components-font-awesome/fonts/fontawesome-webfont.woff'
+        font-awesome-woff2:
+            inputs: '@AppBundle/Resources/public/components/components-font-awesome/fonts/fontawesome-webfont.woff2'
+            output: '/Resources/public/components/components-font-awesome/fonts/fontawesome-webfont.woff2'
+        # Assets Packaging
         theme_js:
             inputs:
                 - '@AppBundle/Resources/public/components/jquery/dist/jquery.min.js'
+                - '@AppBundle/Resources/public/components/jquery-migrate/jquery-migrate.min.js'
                 - '@AppBundle/Resources/public/components/bootstrap/dist/js/bootstrap.min.js'
         theme_css:
             inputs:
                 - '@AppBundle/Resources/public/components/components-font-awesome/css/font-awesome.min.css'
                 - '@AppBundle/Resources/public/components/bootstrap/dist/css/bootstrap.min.css'
+        launching_js:
+            inputs:
+                #- '@AppBundle/Resources/public/components/jquery.cookie/jquery.cookie.js'
+                - '@AppBundle/Resources/public/components/scrollMonitor/scrollMonitor.js'
+                - '@LaunchingBundle/Resources/public/js/apps.js'
+        launching_css:
+            inputs:
+                - '@LaunchingBundle/Resources/public/css/style.css'
+                - '@LaunchingBundle/Resources/public/css/style-responsive.css'
+                - '@AppBundle/Resources/public/components/animate.css/animate.min.css'
+                - '@LaunchingBundle/Resources/public/css/theme/default.css'
+
     #java: /usr/bin/java
     filters:
         cssrewrite: ~
@@ -110,3 +143,6 @@ fos_user:
             from_email:
                 address:      resetting@feedme.com
                 sender_name:  Feedme Meiler Resetting
+
+# Gravatar Bundle
+ornicar_gravatar: ~
