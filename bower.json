@@ -3,6 +3,11 @@
     "version": "0.0.1",
     "dependencies": {
         "bootstrap": "3.3.2",
-        "components-font-awesome": "4.3.0"
+        "components-font-awesome": "4.3.0",
+        "animate.css": "3.2.0",
+        "pace": "v1.0.2",
+        "jquery-migrate": "1.2.1",
+        "jquery.cookie": "v1.4.1",
+        "scrollMonitor": "v1.0.12"
     }
 }
