@@ -56,8 +56,8 @@
                             <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-left animated fadeInDown">
-                            <li><a href="{{ url('fos_user_security_login') }}">{{ 'home.signin'|trans }}</a></li>
-                            <li><a href="{{ url('fos_user_registration_register') }}">{{ 'home.login'|trans }}</a></li>
+                            <li><a href="{{ url('fos_user_registration_register') }}">{{ 'home.signin'|trans }}</a></li>
+                            <li><a href="{{ url('fos_user_security_login') }}">{{ 'home.login'|trans }}</a></li>
                         </ul>
                     </li>
                     <li><a href="#about" data-click="scroll-to-target">{{ 'about.label'|trans|capitalize }}</a></li>
@@ -86,8 +86,8 @@
             <h1>{{ 'home.welcome'|trans }}</h1>
             <h3>{{ 'home.resume'|trans }}</h3>
             <p>{{ 'home.desc'|trans|nl2br }}</p>
-            <a href="#" class="btn btn-theme">{{ 'home.signin'|trans }}</a>
-            <a href="#" class="btn btn-outline">{{ 'home.login'|trans }}</a><br />
+            <a href="{{ url('fos_user_registration_register') }}" class="btn btn-theme">{{ 'home.signin'|trans }}</a>
+            <a href="{{ url('fos_user_security_login') }}" class="btn btn-outline">{{ 'home.login'|trans }}</a><br />
             <br />
         </div>
         <!-- end container -->

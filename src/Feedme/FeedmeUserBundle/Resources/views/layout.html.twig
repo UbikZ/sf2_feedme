@@ -57,8 +57,13 @@
         <!-- begin brand -->
         <div class="login-header">
             <div class="brand">
-                <span class="logo"></span> Color Admin
-                <small>responsive bootstrap 3 admin template</small>
+                <span class="feedme_logo">
+                    {% image '@AppBundle/Resources/public/img/feedme.png' %}
+                    <img src="{{ asset_url }}" alt="FeedMe" />
+                    {% endimage %}
+                </span>
+                {{ 'feedme.title'|trans }}
+                <small>{{ 'feedme.sub'|trans }}</small>
             </div>
             <div class="icon">
                 <i class="fa fa-sign-in"></i>
