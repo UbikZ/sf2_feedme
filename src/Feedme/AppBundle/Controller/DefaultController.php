@@ -16,6 +16,11 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
+        $this->get('session')->getFlashBag()->add(
+            'notice',
+            'Vos changements ont été sauvegardés!'
+        );
+
         return $this->render('AppBundle:Default:index.html.twig', ['user' => $this->getUser()]);
     }
 }
