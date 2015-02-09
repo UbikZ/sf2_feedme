@@ -50,20 +50,21 @@
             <!-- begin navbar-collapse -->
             <div class="collapse navbar-collapse" id="header-navbar">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="active dropdown">
-                        <a href="#home" data-click="scroll-to-target" data-toggle="dropdown">
-                            {{ 'home.label'|trans|capitalize }}
-                            <b class="caret"></b>
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-left animated fadeInDown">
-                            <li><a href="{{ url('fos_user_registration_register') }}">{{ 'home.signin'|trans }}</a></li>
-                            <li><a href="{{ url('fos_user_security_login') }}">{{ 'home.login'|trans }}</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="#home" data-click="scroll-to-target">{{ 'home.label'|trans|capitalize }}</a></li>
                     <li><a href="#about" data-click="scroll-to-target">{{ 'about.label'|trans|capitalize }}</a></li>
                     <li><a href="#team" data-click="scroll-to-target">{{ 'team.label'|trans|capitalize }}</a></li>
                     <li><a href="#service" data-click="scroll-to-target">{{ 'service.label'|trans|capitalize }}</a></li>
                     <li><a href="#contact" data-click="scroll-to-target">{{ 'contact.label'|trans|capitalize }}</a></li>
+                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                        <li class="dropdown">
+                            <a data-toggle="dropdown">{{ user.username }} <b class="caret"></b></a>
+                            <ul class="dropdown-menu dropdown-menu-left animated fadeInDown">
+                                <li><a href="{{ url('fos_user_profile_show') }}">{{ 'user.profile'|trans }}</a></li>
+                                <li><a href="{{ url('dashboard') }}">{{ 'user.dashboard'|trans }}</a></li>
+                                <li><a href="{{ url('fos_user_security_logout') }}">{{ 'user.loggout'|trans }}</a></li>
+                            </ul>
+                        </li>
+                    {% endif %}
                 </ul>
             </div>
             <!-- end navbar-collapse -->
@@ -86,8 +87,10 @@
             <h1>{{ 'home.welcome'|trans }}</h1>
             <h3>{{ 'home.resume'|trans }}</h3>
             <p>{{ 'home.desc'|trans|nl2br }}</p>
-            <a href="{{ url('fos_user_registration_register') }}" class="btn btn-theme">{{ 'home.signin'|trans }}</a>
-            <a href="{{ url('fos_user_security_login') }}" class="btn btn-outline">{{ 'home.login'|trans }}</a><br />
+            {% if not is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                <a href="{{ url('fos_user_registration_register') }}" class="btn btn-theme">{{ 'home.signin'|trans }}</a>
+                <a href="{{ url('fos_user_security_login') }}" class="btn btn-outline">{{ 'home.login'|trans }}</a><br />
+            {% endif %}
             <br />
         </div>
         <!-- end container -->
