@@ -1,4 +1,13 @@
 not_member: Not a member yet? Click <a href="%register_link%">here</a> to register.
+already_member: Already a member yet? Click <a href="%login_link%">here</a> to login.
 feedme:
     title:  Feed Me
     sub:  Social Feed Media
+form:
+    username: "Username"
+    email: "Email"
+    current_password: "Current password"
+    password: "Password"
+    password_confirmation: "Repeat password"
+    new_password: "New password"
+    new_password_confirmation: "Repeat new password"
