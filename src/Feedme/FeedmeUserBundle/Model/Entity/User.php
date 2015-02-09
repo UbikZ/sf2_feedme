@@ -26,6 +26,18 @@ class User extends BaseUser
      * @ORM\Column(type="string", nullable=true)
      * @var string
      */
+    protected $firstname;
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     * @var string
+     */
+    protected $lastname;
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     * @var string
+     */
     protected $organization;
 
     /**
@@ -183,5 +195,38 @@ class User extends BaseUser
     public function setWebsiteDisplay($websiteDisplay)
     {
         $this->websiteDisplay = $websiteDisplay;
+    }
+
+
+    /**
+     * @return string
+     */
+    public function getLastname()
+    {
+        return $this->lastname;
+    }
+
+    /**
+     * @param string $lastname
+     */
+    public function setLastname($lastname)
+    {
+        $this->lastname = $lastname;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFirstname()
+    {
+        return $this->firstname;
+    }
+
+    /**
+     * @param string $firstname
+     */
+    public function setFirstname($firstname)
+    {
+        $this->firstname = $firstname;
     }
 }
