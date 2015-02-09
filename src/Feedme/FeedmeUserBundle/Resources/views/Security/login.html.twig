@@ -26,5 +26,8 @@
             <input  class="btn btn-theme btn-block btn-lg"
                     type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
         </div>
+        <div class="m-t-20">
+            {{'not_member'|trans({'%register_link%': url('fos_user_registration_register')}, 'messages')|raw }}
+        </div>
     </form>
 {% endblock fos_user_content %}
