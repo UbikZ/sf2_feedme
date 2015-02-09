@@ -70,9 +70,28 @@
             </div>
         </div>
         <!-- end brand -->
+
         <div class="login-content">
-            {% block fos_user_content %}
-            {% endblock fos_user_content %}
+            {% for type, messages in app.session.flashbag.all() %}
+                {% for message in messages %}
+                    <div class="flash-{{ type }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endfor %}
+
+            <div>
+                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                    {{ 'layout.logged_in_as'|trans({
+                            '%username%': app.user.username,
+                            '%dash_link%': url('dashboard'),
+                            '%loggout_link%': path('fos_user_security_logout')
+                    })|raw|nl2br }}
+                {% else %}
+                    {% block fos_user_content %}
+                    {% endblock fos_user_content %}
+                {% endif %}
+            </div>
         </div>
     </div>
     <!-- end login -->
