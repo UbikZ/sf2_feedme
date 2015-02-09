@@ -1,4 +1,40 @@
 {% extends "base.html.twig" %}
 
+{% block javascripts_head %}
+    {% javascripts '@AppBundle/Resources/public/components/pace/pace.min.js' %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}
+
+{% block javascripts_bottom %}
+    {% javascripts '@theme_js' %}<script src="{{ asset_url }}"></script>{% endjavascripts %}
+    {% javascripts '@global_js' %}<script src="{{ asset_url }}"></script>{% endjavascripts %}
+    {% javascripts '@dashboard_js' %}<script src="{{ asset_url }}"></script>{% endjavascripts %}
+    <script>
+        $(document).ready(function() {
+            App.init();
+            Dashboard.init();
+        });
+    </script>
+{% endblock %}
+
+{% block stylesheets %}
+    {% stylesheets '@theme_css' filter='cssrewrite' %}<link rel="stylesheet" href="{{ asset_url }}" />{% endstylesheets %}
+    {% stylesheets '@global_css' filter='cssrewrite' %}<link rel="stylesheet" href="{{ asset_url }}" />{% endstylesheets %}
+{% endblock %}
+
 {% block body %}
+    <!-- begin #page-loader -->
+    <div id="page-loader" class="fade in"><span class="spinner"></span></div>
+    <!-- end #page-loader -->
+
+    <!-- begin #page-container -->
+    <div id="page-container" class="fade page-sidebar-fixed page-header-fixed">
+        {% include 'AppBundle::header.html.twig' %}
+        {% include 'AppBundle::sidebar.html.twig' %}
+        <!-- begin #content -->
+        <div id="content" class="content">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
 {% endblock %}
