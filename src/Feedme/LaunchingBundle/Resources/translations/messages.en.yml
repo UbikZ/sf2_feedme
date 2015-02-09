@@ -109,3 +109,8 @@ contact:
     label:  contact
     title:  Contact Us
     desc: You can contact us at <a href="mailto:support@ubikz.com">support@ubikz.com</a> for any support.
+
+user:
+    loggout:  Loggout
+    dashboard: Dashboard
+    profile:  Profile
