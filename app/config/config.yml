@@ -79,6 +79,10 @@ assetic:
                 - '@AppBundle/Resources/public/css/style.css'
                 - '@AppBundle/Resources/public/css/style-responsive.css'
                 - '@AppBundle/Resources/public/css/theme/default.css'
+        dashboard_js:
+            inputs:
+                - '@AppBundle/Resources/public/js/dashboard.js'
+                - '@AppBundle/Resources/public/components/slimScroll/jquery.slimscroll.min.js'
         launching_js:
             inputs:
                 - '@AppBundle/Resources/public/components/scrollMonitor/scrollMonitor.js'
