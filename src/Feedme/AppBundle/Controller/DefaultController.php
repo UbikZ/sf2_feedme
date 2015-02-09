@@ -16,6 +16,6 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        echo "dashboard";die;
+        return $this->render('AppBundle:Default:index.html.twig', ['user' => $this->getUser()]);
     }
 }

@@ -37,7 +37,7 @@ twig:
 assetic:
     debug:          "%kernel.debug%"
     use_controller: false
-    bundles:        ['LaunchingBundle', 'FeedmeUserBundle']
+    bundles:        ['LaunchingBundle', 'FeedmeUserBundle', 'AppBundle']
     # Assets
     assets:
         # Fonts (hack)
