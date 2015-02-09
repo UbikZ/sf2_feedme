@@ -112,6 +112,6 @@ contact:
     desc: You can contact us at <a href="mailto:support@ubikz.com">support@ubikz.com</a> for any support.
 
 user:
-    loggout:  Loggout
+    logout:  Logout
     dashboard: Dashboard
     profile:  Profile
