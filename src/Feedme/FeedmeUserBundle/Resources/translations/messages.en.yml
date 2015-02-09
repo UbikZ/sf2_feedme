@@ -3,7 +3,7 @@ already_member: Already a member yet? Click <a href="%login_link%">here</a> to l
 layout:
     logged_in_as: |
         You are already logged as '%username%'.
-        You can access to your <a href="%dash_link%">Dashboard</a> or <a href="%loggout_link%">Loggout</a>.
+        You can access to your <a href="%dash_link%">Dashboard</a> or <a href="%logout_link%">Logout</a>.
 registration:
     redirect: Click <a href="%redirect_link%">here</a>, to load your dashboard.
 security:

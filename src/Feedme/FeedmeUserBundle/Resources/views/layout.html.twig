@@ -1,25 +1,5 @@
 {% extends "base.html.twig" %}
 
-{% block body %}
-<div>
-    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-        {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
-        <a href="{{ path('fos_user_security_logout') }}">
-            {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
-        </a>
-    {% else %}
-        <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
-    {% endif %}
-</div>
-
-{% for type, messages in app.session.flashbag.all() %}
-    {% for message in messages %}
-        <div class="flash-{{ type }}">
-            {{ message }}
-        </div>
-    {% endfor %}
-{% endfor %}
-
 {% block javascripts_bottom %}
     {% javascripts '@theme_js' %}<script src="{{ asset_url }}"></script>{% endjavascripts %}
     {% javascripts '@global_js' %}<script src="{{ asset_url }}"></script>{% endjavascripts %}
@@ -36,6 +16,18 @@
     {% stylesheets '@theme_css' filter='cssrewrite' %}<link rel="stylesheet" href="{{ asset_url }}" />{% endstylesheets %}
     {% stylesheets '@global_css' filter='cssrewrite' %}<link rel="stylesheet" href="{{ asset_url }}" />{% endstylesheets %}
 {% endblock %}
+
+{% block body %}
+<div>
+    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+        {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
+        <a href="{{ path('fos_user_security_logout') }}">
+            {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+        </a>
+    {% else %}
+        <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+    {% endif %}
+</div>
 
 <!-- begin #page-loader -->
 <div id="page-loader" class="fade in"><span class="spinner"></span></div>
@@ -85,7 +77,7 @@
                     {{ 'layout.logged_in_as'|trans({
                             '%username%': app.user.username,
                             '%dash_link%': url('dashboard'),
-                            '%loggout_link%': path('fos_user_security_logout')
+                            '%logout_link%': path('fos_user_security_logout')
                     })|raw|nl2br }}
                 {% else %}
                     {% block fos_user_content %}
