@@ -197,7 +197,6 @@ class User extends BaseUser
         $this->websiteDisplay = $websiteDisplay;
     }
 
-
     /**
      * @return string
      */
