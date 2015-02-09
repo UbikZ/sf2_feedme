@@ -1,0 +1,11 @@
+header:
+    search: Enter keyword
+    view_more:  View more
+    edit_profile: Edit Profile
+    notifications: Notifications
+    messages: Messages
+    setting: Setting
+    logout: Logout
+siderbar:
+
+content:
