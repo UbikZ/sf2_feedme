@@ -1,5 +1,9 @@
 not_member: Not a member yet? Click <a href="%register_link%">here</a> to register.
 already_member: Already a member yet? Click <a href="%login_link%">here</a> to login.
+layout:
+    logged_in_as: |
+        You are already logged as '%username%'.
+        You can access to your <a href="%dash_link%">Dashboard</a> or <a href="%loggout_link%">Loggout</a>.
 registration:
     redirect: Click <a href="%redirect_link%">here</a>, to load your dashboard.
 feedme:
