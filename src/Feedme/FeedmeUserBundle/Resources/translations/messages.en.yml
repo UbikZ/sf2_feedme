@@ -6,6 +6,10 @@ layout:
         You can access to your <a href="%dash_link%">Dashboard</a> or <a href="%loggout_link%">Loggout</a>.
 registration:
     redirect: Click <a href="%redirect_link%">here</a>, to load your dashboard.
+security:
+    login:
+        username: Username
+        password: Password
 feedme:
     title:  Feed Me
     sub:  Social Feed Media

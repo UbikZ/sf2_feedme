@@ -9,11 +9,11 @@
     <form action="{{ path("fos_user_security_check") }}" method="post">
         <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
         <div class="form-group m-b-20">
-            <input  class="form-control input-lg" placeholder="{{ 'security.login.username'|trans }}"
+            <input  class="form-control input-lg" placeholder="{{ 'security.login.username'|trans({}, 'messages') }}"
                     type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
         </div>
         <div class="form-group m-b-20">
-            <input  class="form-control input-lg" placeholder="{{ 'security.login.password'|trans }}"
+            <input  class="form-control input-lg" placeholder="{{ 'security.login.password'|trans({}, 'messages') }}"
                     type="password" id="password" name="_password" required="required" />
         </div>
         <div class="checkbox m-b-20">
