@@ -2,6 +2,7 @@ home:
     label:  home
     login:  Log-In
     signin: Sign-In
+    dashboard:  Check out your dashboard now !
     welcome:  Welcome to Feedme
     resume: Social Feeds Media
     desc: |

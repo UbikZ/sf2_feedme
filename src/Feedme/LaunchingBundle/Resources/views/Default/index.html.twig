@@ -59,7 +59,6 @@
                         <li class="dropdown">
                             <a data-toggle="dropdown">{{ user.username }} <b class="caret"></b></a>
                             <ul class="dropdown-menu dropdown-menu-left animated fadeInDown">
-                                <li><a href="{{ url('fos_user_profile_show') }}">{{ 'user.profile'|trans }}</a></li>
                                 <li><a href="{{ url('dashboard') }}">{{ 'user.dashboard'|trans }}</a></li>
                                 <li><a href="{{ url('fos_user_security_logout') }}">{{ 'user.loggout'|trans }}</a></li>
                             </ul>
@@ -90,6 +89,8 @@
             {% if not is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                 <a href="{{ url('fos_user_registration_register') }}" class="btn btn-theme">{{ 'home.signin'|trans }}</a>
                 <a href="{{ url('fos_user_security_login') }}" class="btn btn-outline">{{ 'home.login'|trans }}</a><br />
+            {% else %}
+                <a href="{{ url('dashboard') }}" class="btn btn-outline">{{ 'home.dashboard'|trans }}</a><br />
             {% endif %}
             <br />
         </div>
