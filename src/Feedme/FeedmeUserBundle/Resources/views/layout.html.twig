@@ -2,12 +2,10 @@
 
 {% block javascripts_bottom %}
     {% javascripts '@theme_js' %}<script src="{{ asset_url }}"></script>{% endjavascripts %}
-    {% javascripts '@global_js' %}<script src="{{ asset_url }}"></script>{% endjavascripts %}
     {% javascripts '@FeedmeUserBundle/Resources/public/js/login.js' %}<script src="{{ asset_url }}"></script>{% endjavascripts %}
     <script>
         $(document).ready(function() {
-            App.init();
-            LoginV2.init();
+            Login.init();
         });
     </script>
 {% endblock %}
@@ -29,10 +27,6 @@
     {% endif %}
 </div>
 
-<!-- begin #page-loader -->
-<div id="page-loader" class="fade in"><span class="spinner"></span></div>
-<!-- end #page-loader -->
-
 <div class="login-cover">
     <div class="login-cover-image">
         {% image '@LaunchingBundle/Resources/public/img/home-bg.jpg' %}
@@ -43,7 +37,7 @@
 </div>
 
 <!-- begin #page-container -->
-<div id="page-container" class="fade">
+<div id="page-container" class="animated fadeIn">
     <!-- begin login -->
     <div class="login login-v2" data-pageload-addclass="animated flipInX">
         <!-- begin brand -->
