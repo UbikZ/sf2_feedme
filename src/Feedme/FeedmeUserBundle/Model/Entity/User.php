@@ -71,7 +71,7 @@ class User extends BaseUser
     protected $websiteDisplay = true;
 
     /**
-     * @ORM\OneToOne(targetEntity="Feedme\WallBundle\Model\Entity\Wall")
+     * @ORM\OneToOne(targetEntity="Feedme\AppBundle\Model\Entity\Wall")
      * @ORM\JoinColumn(name="wall_id", referencedColumnName="id")
      * @var Wall
      */
