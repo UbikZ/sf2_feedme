@@ -152,6 +152,8 @@ fos_user:
             from_email:
                 address:      registration@feedme.com
                 sender_name:  Feedme Mailer Registration
+        form:
+            type: feedme_user_registration
     resetting:
         email:
             from_email:
