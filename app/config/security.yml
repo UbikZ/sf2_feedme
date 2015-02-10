@@ -37,6 +37,5 @@ security:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/dashboard, role: IS_AUTHENTICATED_REMEMBERED }
-        - { path: ^/profile, role: IS_AUTHENTICATED_REMEMBERED }
+        - { path: ^/app, role: IS_AUTHENTICATED_REMEMBERED }
         - { path: ^/admin, role: ROLE_SUPER_ADMIN }

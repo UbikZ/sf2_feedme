@@ -12,7 +12,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/dashboard", name="dashboard")
+     * @Route("/app", name="app")
      */
     public function indexAction()
     {
