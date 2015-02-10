@@ -10,8 +10,8 @@ var generateSlimScroll = function(e) {
     t = !t ? $(e).height() : t;
     var n = {height: t,alwaysVisible: true};
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-        n.wheelStep = 5;
-        n.touchScrollStep = 500
+        n.wheelStep = 3;
+        n.touchScrollStep = 100
     }
     $(e).slimScroll(n)
 };
@@ -327,7 +327,53 @@ var handleResetLocalStorage = function() {
         t = t.split("?");
         t = t[0];
         localStorage.removeItem(t);
-        window.location.href = document.URL
+        window.location.href = document.URL;
+        location.reload()
+    })
+};
+
+var default_content = '<div class="p-t-40 p-b-40 text-center f-s-20 content"><i class="fa fa-warning fa-lg text-muted m-r-5"></i> <span class="f-w-600 text-inverse">Error 404! Page not found.</span></div>';
+var handleLoadPage = function(e) {
+    Pace.restart();
+    var t = e.replace("#", "");
+    $(".jvectormap-label, .jvector-label, .AutoFill_border, #gritter-notice-wrapper, .ui-autocomplete, .colorpicker, .FixedHeader_Header, .FixedHeader_Cloned .lightboxOverlay, .lightbox").remove();
+    $.ajax({type: "POST", url: t, dataType: "html", success: function(e) {
+        $("#ajax-content").html(e);
+        $("html, body").animate({scrollTop: $("body").offset().top}, 250)
+    },error: function(e, t, n) {
+        $("#ajax-content").html(default_content)
+    }})
+};
+
+var handleCheckPageLoadUrl = function(e) {
+    e = e ? e : "";
+    if (e === "") {
+        $("#ajax-content").html(default_content)
+    } else {
+        $('.sidebar [href="' + e + '"][data-toggle=ajax]').trigger("click");
+        handleLoadPage(e)
+    }
+};
+
+var handleSidebarAjaxClick = function() {
+    $(".sidebar [data-toggle=ajax]").click(function() {
+        var e = $(this).closest("li");
+        var t = $(this).parents();
+        $(".sidebar li").not(e).not(t).removeClass("active");
+        $(e).addClass("active");
+        $(t).addClass("active")
+    })
+};
+
+var handleHashChange = function() {
+    $(window).hashchange(function() {
+        handleLoadPage(window.location.hash)
+    })
+};
+
+var handlePaceLoadingPlugins = function() {
+    Pace.on("hide", function() {
+        $(".pace").addClass("hide")
     })
 };
 
@@ -446,7 +492,6 @@ var handleUnlimitedTabsRender = function() {
     });
     n()
 };
-
 var App = function() {
     "use strict";
     return {init: function() {
@@ -454,15 +499,32 @@ var App = function() {
         handleLocalStorage();
         handleResetLocalStorage();
         handleSlimScroll();
+        handlePanelAction();
+        handelTooltipPopoverActivation();
+        handlePageContentView();
+        handleAfterPageLoadAddClass();
+        handlePaceLoadingPlugins();
+        handleScrollToTopButton();
         handleSidebarMenu();
         handleMobileSidebarToggle();
         handleSidebarMinify();
-        handleAfterPageLoadAddClass();
+        handleSidebarAjaxClick();
+        handleCheckPageLoadUrl(window.location.hash);
+        handleHashChange();
+        handleIEFullHeightContent();
+        handleUnlimitedTabsRender();
+        $.ajaxSetup({cache: true})
+    },
+        setPageTitle: function(e) {
+        document.title = e
+    },
+        restartGlobalFunction: function() {
+        handleDraggablePanel();
+        handleLocalStorage();
+        handleSlimScroll();
         handlePanelAction();
         handelTooltipPopoverActivation();
-        handleScrollToTopButton();
-        handlePageContentView();
-        handleIEFullHeightContent();
+        handleAfterPageLoadAddClass();
         handleUnlimitedTabsRender()
     }}
 }();
