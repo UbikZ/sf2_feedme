@@ -9,7 +9,7 @@ var handleAfterPageLoadAddClass = function() {
     }
 };
 
-var LoginV2 = function() {
+var Login = function() {
     "use strict";
     return {init: function() {
         handleAfterPageLoadAddClass()
