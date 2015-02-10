@@ -6,6 +6,26 @@ header:
     messages: Messages
     setting: Setting
     logout: Logout
-siderbar:
-
-content:
+sidebar:
+    user: User
+    admin:  Administrator
+    superadmin: Super Administrator
+    dashboard:
+        label:  Dashboard
+        trends_day: Trends /day
+        trends_month: Trends /month
+        trends_year:  Trends /year
+    messages:
+        label:  Messages
+        inbox:  Inbox
+        compose:  Compose
+        sent: Sent
+    account:
+        label:  Account
+        profile:  Profile
+        settings: Settings
+        notifications:  Notifications
+        security: Security
+    social:
+        wall: Wall
+        friends:  Friends
