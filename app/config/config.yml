@@ -74,6 +74,7 @@ assetic:
         global_js:
             inputs:
                 - '@AppBundle/Resources/public/js/app.js'
+                - '@AppBundle/Resources/public/js/plugins/jquery.hashchange.js'
         global_css:
             inputs:
                 - '@AppBundle/Resources/public/css/style.css'
@@ -127,10 +128,10 @@ doctrine:
                 type: annotation
                 dir: %kernel.root_dir%/../src/Feedme/FeedmeUserBundle/Model/Entity
                 prefix: Feedme\FeedmeUserBundle\Model\Entity
-            WallBundle:
+            AppBundle:
                 type: annotation
-                dir: %kernel.root_dir%/../src/Feedme/WallBundle/Model/Entity
-                prefix: Feedme\WallBundle\Model\Entity
+                dir: %kernel.root_dir%/../src/Feedme/AppBundle/Model/Entity
+                prefix: Feedme\AppBundle\Model\Entity
 
 # Swiftmailer Configuration
 swiftmailer:

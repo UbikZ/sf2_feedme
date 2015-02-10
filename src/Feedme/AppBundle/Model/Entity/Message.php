@@ -1,13 +1,13 @@
 <?php
 
-namespace Feedme\WallBundle\Model\Entity;
+namespace Feedme\AppBundle\Model\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Class Message
- * @package Feedme\WallBundle\Model\Entity
+ * @package Feedme\AppBundle\Model\Entity
  * @ORM\Entity
  * @ORM\Table(name="message", indexes={})
  */
