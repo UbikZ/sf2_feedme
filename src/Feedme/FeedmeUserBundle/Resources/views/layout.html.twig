@@ -70,7 +70,7 @@
                 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                     {{ 'layout.logged_in_as'|trans({
                             '%username%': app.user.username,
-                            '%dash_link%': url('dashboard'),
+                            '%dash_link%': url('app'),
                             '%logout_link%': path('fos_user_security_logout')
                     })|raw|nl2br }}
                 {% else %}

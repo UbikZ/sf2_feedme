@@ -9,7 +9,7 @@
         {% if targetUrl is not empty %}
             <p><a href="{{ targetUrl }}">{{ 'registration.back'|trans }}</a></p>
         {% else %}
-            <p>{{'registration.redirect'|trans({'%redirect_link%': url('dashboard')}, 'messages')|raw }}</p>
+            <p>{{'registration.redirect'|trans({'%redirect_link%': url('app')}, 'messages')|raw }}</p>
         {% endif %}
     {% endif %}
 {% endblock fos_user_content %}
