@@ -93,7 +93,5 @@ var App = function() {
         handlePageScrollContentAnimation();
         handleHeaderScrollToAction();
         handleTooltipActivation();
-        handleThemePanelExpand();
-        handleThemePageControl()
     }}
 }();
