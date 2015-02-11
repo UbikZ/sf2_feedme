@@ -29,3 +29,7 @@ sidebar:
     social:
         wall: Wall
         friends:  Friends
+toastr:
+    success:  Your modifications have been saved.
+    error:  Your modifications could not be saved.
+    warning:  Check the messages.

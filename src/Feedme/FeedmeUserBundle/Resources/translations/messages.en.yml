@@ -20,9 +20,16 @@ form:
     lastname: Lastname
     current_password: Current password
     password: Password
+    organization: Organization
+    comment:  About
+    location: Location
+    website:  Website
     password_confirmation: Repeat password
     new_password: New password
     new_password_confirmation: Repeat new password
+    profile:
+        edit:
+            submit: Save
     validation:
         firstname:
             notblank: The firstname should not be empty.
