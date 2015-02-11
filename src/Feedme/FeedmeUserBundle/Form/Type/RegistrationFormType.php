@@ -6,8 +6,16 @@ use Symfony\Component\Form\FormBuilderInterface;
 use \FOS\UserBundle\Form\Type\RegistrationFormType as FOSUserRegistrationFormType;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
+/**
+ * Class RegistrationFormType
+ * @package Feedme\FeedmeUserBundle\Form\Type
+ */
 class RegistrationFormType extends FOSUserRegistrationFormType
 {
+    /**
+     * @param FormBuilderInterface $builder
+     * @param array $options
+     */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         parent::buildForm($builder, $options);
