@@ -3,7 +3,7 @@
 namespace Feedme\FeedmeUserBundle\Model\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Feedme\WallBundle\Model\Entity\Wall;
+use Feedme\AppBundle\Model\Entity\Wall;
 use FOS\UserBundle\Model\User as BaseUser;
 
 /**
