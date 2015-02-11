@@ -1,0 +1,22 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+<div class="row">
+    <!-- begin col-6 -->
+    <div class="col-md-6">
+        {% embed 'AppBundle::_partials/panel.html.twig' with {'title': 'profile.form.user'|trans} %}
+            {% block panel_content %}
+                <form   action="#{{ path('fos_user_profile_edit') }}" {{ form_enctype(form) }} method="POST"
+                        class="fos_user_profile_edit form-horizontal form-bordered" data-parsley-validate="true" name="demo-form">
+                    {{ form_widget(form) }}
+                    <div class="form-group">
+                        <label class="control-label col-md-5 col-sm-5"></label>
+                        <div class="col-md-6 col-sm-6">
+                            <input type="submit" class="btn btn-theme" value="{{ 'form.profile.edit.submit'|trans }}" />
+                        </div>
+                    </div>
+                </form>
+            {% endblock %}
+        {% endembed %}
+    </div>
+    <!-- end col-6 -->
+</div>
