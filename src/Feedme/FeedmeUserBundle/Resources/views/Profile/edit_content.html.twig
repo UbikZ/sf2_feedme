@@ -3,7 +3,7 @@
 <div class="row">
     <!-- begin col-6 -->
     <div class="col-md-6">
-        {% embed 'AppBundle::_partials/panel.html.twig' with {'title': 'profile.form.user'|trans} %}
+        {% embed 'AppBundle::_partials/panel.html.twig' with {'title': 'profile.user.title'|trans} %}
             {% block panel_content %}
                 <form   action="#{{ path('fos_user_profile_edit') }}" {{ form_enctype(form) }} method="POST"
                         class="fos_user_profile_edit form-horizontal form-bordered" data-parsley-validate="true" name="demo-form">
@@ -15,6 +15,26 @@
                         </div>
                     </div>
                 </form>
+            {% endblock %}
+        {% endembed %}
+    </div>
+    <!-- end col-6 -->
+    <!-- begin col-6 -->
+    <div class="col-md-6">
+        {% embed 'AppBundle::_partials/panel.html.twig' with {'title': 'profile.gravatar.title'|trans} %}
+            {% block panel_content %}
+                <div class="panel-body">
+                    <div class="media media-lg">
+                        <a class="media-left">
+                            <img class="media-left" src="" alt="gravatar" data-gravatar="250">
+                        </a>
+                        <div class="media-body">
+                            <h4 class="media-heading">{{ 'profile.gravatar.label' }}</h4>
+                            {{ 'profile.gravatar.desc' }}
+                        </div>
+                    </div>
+
+                </div>
             {% endblock %}
         {% endembed %}
     </div>
