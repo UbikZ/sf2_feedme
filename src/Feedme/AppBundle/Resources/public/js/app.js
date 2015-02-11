@@ -362,7 +362,6 @@ var handleLoadPage = function(e) {
         $.ajax({type: "GET", url: t, dataType: "html", success: function(e) {
             $("#ajax-content").html(e);
             handleSubmitPage(window.location.hash);
-            handleUser();
             $("html, body").animate({scrollTop: $("body").offset().top}, 250)
         }, error: function(e, t, n) {
             $("#ajax-content").html(default_content)
@@ -371,6 +370,7 @@ var handleLoadPage = function(e) {
 };
 
 var handleSubmitPage = function(e) {
+    handleUser();
     if (e != "") {
         var ajaxForms = "form[action^=#]";
         $.each($("#ajax-content " + ajaxForms), function(i, f) {
