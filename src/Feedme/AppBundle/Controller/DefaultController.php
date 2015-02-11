@@ -6,6 +6,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer;
 use Symfony\Component\Serializer\Serializer;
@@ -17,14 +18,18 @@ use Symfony\Component\Serializer\Serializer;
 class DefaultController extends Controller
 {
     /**
+     * @Route("/error", name="error")
+     */
+    public function errorAction()
+    {
+        return $this->render('AppBundle:_errors:404.html.twig');
+    }
+
+    /**
      * @Route("/app", name="app")
      */
     public function indexAction()
     {
-        $this->get('session')->getFlashBag()->add(
-            'notice',
-            'Vos changements ont été sauvegardés!'
-        );
 
         return $this->render('AppBundle:Default:index.html.twig', ['user' => $this->getUser()]);
     }
@@ -36,14 +41,12 @@ class DefaultController extends Controller
      */
     public function userAction(Request $request)
     {
-        if (!$request->isXmlHttpRequest()) {
-            $this->createNotFoundException();
-        }
+        $this->createNotFoundException();
 
-        $serializer = new Serializer([new GetSetMethodNormalizer()], [new JsonEncoder()]);
+        //if ($request->isXmlHttpRequest()) {
+            $serializer = new Serializer([new GetSetMethodNormalizer()], [new JsonEncoder()]);
 
-        return new JsonResponse($serializer->serialize($this->getUser(), 'json'));
+            return new JsonResponse($serializer->serialize($this->getUser(), 'json'));
+        //}
     }
-
-
 }

@@ -4,6 +4,12 @@ parameters:
 #    parameter_name: value
 
 services:
+    kernel.listener.kernel_request:
+           class: Feedme\AppBundle\EventListener\ErrorRedirect
+           arguments:
+               router: "@router"
+           tags:
+               - { name: kernel.event_listener, event: kernel.exception, method: onKernelException }
     feedmeuserbundle.registration.form.type:
         class:  Feedme\FeedmeUserBundle\Form\Type\RegistrationFormType
         arguments:  [%fos_user.model.user.class%]
