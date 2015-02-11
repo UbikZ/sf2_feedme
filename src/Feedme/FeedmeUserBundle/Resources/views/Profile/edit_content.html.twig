@@ -3,7 +3,7 @@
 <div class="row">
     <!-- begin col-6 -->
     <div class="col-md-6">
-        {% embed 'AppBundle::_partials/panel.html.twig' with {'title': 'profile.user.title'|trans} %}
+        {% embed 'AppBundle::_partials/panel.html.twig' with {'title': 'profile.user.title'} %}
             {% block panel_content %}
                 <form   action="#{{ path('fos_user_profile_edit') }}" {{ form_enctype(form) }} method="POST"
                         class="fos_user_profile_edit form-horizontal form-bordered" data-parsley-validate="true" name="demo-form">
@@ -21,7 +21,7 @@
     <!-- end col-6 -->
     <!-- begin col-6 -->
     <div class="col-md-6">
-        {% embed 'AppBundle::_partials/panel.html.twig' with {'title': 'profile.gravatar.title'|trans} %}
+        {% embed 'AppBundle::_partials/panel.html.twig' with {'title': 'profile.gravatar.title'} %}
             {% block panel_content %}
                 <div class="panel-body">
                     <div class="media media-lg">
@@ -29,11 +29,16 @@
                             <img class="media-left" src="" alt="gravatar" data-gravatar="250">
                         </a>
                         <div class="media-body">
-                            <h4 class="media-heading">{{ 'profile.gravatar.label' }}</h4>
-                            {{ 'profile.gravatar.desc' }}
+                            <h4 class="media-heading">{{ 'profile.gravatar.label'|trans }}</h4>
+                            {{ 'profile.gravatar.desc'|trans|nl2br }}
+                            <p class="m-t-20">
+                                <a href="https://gravatar.com/" target="_blank" class="btn btn-theme">
+                                    {{ 'profile.gravatar.go'|trans }}
+                                </a>
+                            </p>
                         </div>
                     </div>
-
+                </div>
                 </div>
             {% endblock %}
         {% endembed %}
