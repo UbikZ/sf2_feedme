@@ -9,7 +9,7 @@
                     <a href="#"><img src="{{ gravatar(user.email) }}" alt="" /></a>
                 </div>
                 <div class="info">
-                    {{ user.firstname }} {{ user.lastname }}
+                    <span data-userfullname="true"></span>
                     <small>
                         {% if is_granted("ROLE_SUPER_ADMIN") %}
                             {{ 'sidebar.superadmin'|trans }}
@@ -33,9 +33,9 @@
                     <span>{{ 'sidebar.dashboard.label'|trans }}</span>
                 </a>
                 <ul class="sub-menu">
-                    <li><a href="#">{{ 'sidebar.dashboard.trends_day'|trans }}</a></li>
-                    <li><a href="#">{{ 'sidebar.dashboard.trends_month'|trans }}</a></li>
-                    <li><a href="#">{{ 'sidebar.dashboard.trends_year'|trans }}</a></li>
+                    <li><a href="#" data-toggle="ajax">{{ 'sidebar.dashboard.trends_day'|trans }}</a></li>
+                    <li><a href="#" data-toggle="ajax">{{ 'sidebar.dashboard.trends_month'|trans }}</a></li>
+                    <li><a href="#" data-toggle="ajax">{{ 'sidebar.dashboard.trends_year'|trans }}</a></li>
                 </ul>
             </li>
             <li class="has-sub">
@@ -45,9 +45,9 @@
                     <span>{{ 'sidebar.messages.label'|trans }}</span>
                 </a>
                 <ul class="sub-menu">
-                    <li><a href="#">{{ 'sidebar.messages.inbox'|trans }}</a></li>
-                    <li><a href="#">{{ 'sidebar.messages.compose'|trans }}</a></li>
-                    <li><a href="#">{{ 'sidebar.messages.sent'|trans }}</a></li>
+                    <li><a href="#" data-toggle="ajax">{{ 'sidebar.messages.inbox'|trans }}</a></li>
+                    <li><a href="#" data-toggle="ajax">{{ 'sidebar.messages.compose'|trans }}</a></li>
+                    <li><a href="#" data-toggle="ajax">{{ 'sidebar.messages.sent'|trans }}</a></li>
                 </ul>
             </li>
             <li class="has-sub">
@@ -57,10 +57,10 @@
                     <span>{{ 'sidebar.account.label'|trans }}</span>
                 </a>
                 <ul class="sub-menu">
-                    <li><a href="#">{{ 'sidebar.account.profile'|trans }}</a></li>
-                    <li><a href="#">{{ 'sidebar.account.settings' }}</a></li>
-                    <li><a href="#">{{ 'sidebar.account.notifications' }}</a></li>
-                    <li><a href="#">{{ 'sidebar.account.security' }}</a></li>
+                    <li><a href="#/profile/edit" data-toggle="ajax">{{ 'sidebar.account.profile'|trans }}</a></li>
+                    <li><a href="#" data-toggle="ajax">{{ 'sidebar.account.settings' }}</a></li>
+                    <li><a href="#" data-toggle="ajax">{{ 'sidebar.account.notifications' }}</a></li>
+                    <li><a href="#" data-toggle="ajax">{{ 'sidebar.account.security' }}</a></li>
                 </ul>
             </li>
             <li class="has-sub">
@@ -70,8 +70,8 @@
                     <span>{{ 'sidebar.social.label' }}</span>
                 </a>
                 <ul class="sub-menu">
-                    <li><a href="#">{{ 'sidebar.social.wall' }}</a></li>
-                    <li><a href="#">{{ 'sidebar.social.friends' }}</a></li>
+                    <li><a href="#" data-toggle="ajax">{{ 'sidebar.social.wall' }}</a></li>
+                    <li><a href="#" data-toggle="ajax">{{ 'sidebar.social.friends' }}</a></li>
                 </ul>
             </li>
             <!-- begin sidebar minify button -->

@@ -61,7 +61,7 @@
             <li class="dropdown navbar-user">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                     <img src="{{ gravatar(user.email) }}" alt="{{ user.username }}" />
-                    <span class="hidden-xs">{{ user.username }}</span> <b class="caret"></b>
+                    <span class="hidden-xs"><span data-userfullname="true"></span></span> <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu animated fadeInLeft">
                     <li class="arrow"></li>
