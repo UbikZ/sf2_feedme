@@ -41,12 +41,12 @@ class DefaultController extends Controller
      */
     public function userAction(Request $request)
     {
-        $this->createNotFoundException();
+        if (!$request->isXmlHttpRequest()) {
+            $this->createNotFoundException();
+        }
 
-        //if ($request->isXmlHttpRequest()) {
-            $serializer = new Serializer([new GetSetMethodNormalizer()], [new JsonEncoder()]);
+        $serializer = new Serializer([new GetSetMethodNormalizer()], [new JsonEncoder()]);
 
-            return new JsonResponse($serializer->serialize($this->getUser(), 'json'));
-        //}
+        return new JsonResponse($serializer->serialize($this->getUser(), 'json'));
     }
 }
