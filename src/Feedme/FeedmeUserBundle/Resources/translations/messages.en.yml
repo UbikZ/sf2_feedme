@@ -14,6 +14,9 @@ feedme:
     title:  Feed Me
     sub:  Social Feed Media
 profile:
+    management:
+        title:  Profile management
+        desc: You can change information about your profile
     user:
         title:  Account Manager
     gravatar:
