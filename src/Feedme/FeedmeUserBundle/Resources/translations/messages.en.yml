@@ -13,6 +13,17 @@ security:
 feedme:
     title:  Feed Me
     sub:  Social Feed Media
+profile:
+    user:
+        title:  Account Manager
+    gravatar:
+        title:  Avatar
+        label:  Use Gravatar
+        desc: |
+            You can easily maintain your avatar using Gravatar.
+            This service allows you to associate free (by registering)
+            one of your e-mail address to an avatar.
+        go: Check Gravatar
 form:
     username: Username
     email: Email
