@@ -35,6 +35,7 @@ class DefaultController extends Controller
     }
 
     /**
+     * todo: nasty! clean the json stuffs
      * @Route("/me", name="me")
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
@@ -46,7 +47,15 @@ class DefaultController extends Controller
         }
 
         $serializer = new Serializer([new GetSetMethodNormalizer()], [new JsonEncoder()]);
+        $array = @json_decode($serializer->serialize($this->getUser(), 'json'), true);
+        $array = array_merge_recursive(
+            $array,
+            ['gravatar' => [
+                80 => $this->get('gravatar.api')->getUrl($this->getUser()->getEmail()),
+                250 => $this->get('gravatar.api')->getUrl($this->getUser()->getEmail(), 250)
+            ]]
+        );
 
-        return new JsonResponse($serializer->serialize($this->getUser(), 'json'));
+        return new JsonResponse(json_encode($array));
     }
 }

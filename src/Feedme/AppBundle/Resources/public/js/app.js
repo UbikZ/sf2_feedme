@@ -407,6 +407,10 @@ var handleUser = function() {
         $("[data-userfullname=true]").each(function() {
             $(this).html(user.firstname + " " + user.lastname);
         });
+        $("[data-gravatar]").each(function() {
+            var size = $(this).data('gravatar');
+            $(this).attr('src', user.gravatar[size]);
+        });
     });
 };
 
