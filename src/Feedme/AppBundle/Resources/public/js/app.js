@@ -357,15 +357,29 @@ var default_content = '<div class="p-t-40 p-b-40 text-center f-s-20 content"><i 
 var handleLoadPage = function(e) {
     if (e != "") {
         Pace.restart();
-        var t = e.replace("#", "");
+        var t = e.replace("#", ""),
+            hash = window.location.hash;
         $(".jvectormap-label, .jvector-label, .AutoFill_border, #gritter-notice-wrapper, .ui-autocomplete, .colorpicker, .FixedHeader_Header, .FixedHeader_Cloned .lightboxOverlay, .lightbox").remove();
         $.ajax({type: "GET", url: t, dataType: "html", success: function(e) {
             $("#ajax-content").html(e);
-            handleSubmitPage(window.location.hash);
+            handleSubmitPage(hash);
+            handleBreadcrumb(hash);
             $("html, body").animate({scrollTop: $("body").offset().top}, 250)
         }, error: function(e, t, n) {
             $("#ajax-content").html(default_content)
         }});
+    }
+};
+
+var handleBreadcrumb = function(e) {
+    "use strict";
+    if (e != "") {
+        var $enabled = $('.sidebar [href="' + e + '"][data-toggle=ajax]'),
+            $breadcrumb = $("#breadcrumb"),
+            $els = $enabled.parents('li');
+        $breadcrumb.html('');
+        $breadcrumb.append('<li><a href="#">' + $els.eq(0).text() + '</a>');
+        $breadcrumb.append('<li><a href="#">' + $els.eq(1).find('a span').text() + '</a>');
     }
 };
 

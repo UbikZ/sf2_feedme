@@ -1,9 +1,12 @@
 {% extends "AppBundle::xhr_layout.html.twig" %}
 
 {% block content %}
-    {% block fos_user_content %}
-        {% include "FOSUserBundle:Profile:edit_content.html.twig" %}
-    {% endblock fos_user_content %}
+    <div id="content" class="content">
+        {% include 'AppBundle::_partials/breadcrumb.html.twig' with {'title': 'profile.management.title', 'subtitle': 'profile.management.desc'} %}
+        {% block fos_user_content %}
+            {% include "FOSUserBundle:Profile:edit_content.html.twig" %}
+        {% endblock fos_user_content %}
+    </div>
 {% endblock %}
 
 
