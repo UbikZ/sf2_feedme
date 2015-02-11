@@ -5,6 +5,27 @@ var handleSlimScroll = function() {
     })
 };
 
+var handleToastrConf = function() {
+    "use strict";
+    toastr.options = {
+        "closeButton": false,
+        "debug": false,
+        "newestOnTop": true,
+        "progressBar": true,
+        "positionClass": "toast-top-right",
+        "preventDuplicates": true,
+        "onclick": null,
+        "showDuration": "300",
+        "hideDuration": "1000",
+        "timeOut": "5000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    }
+};
+
 var generateSlimScroll = function(e) {
     var t = $(e).attr("data-height");
     t = !t ? $(e).height() : t;
@@ -334,15 +355,65 @@ var handleResetLocalStorage = function() {
 
 var default_content = '<div class="p-t-40 p-b-40 text-center f-s-20 content"><i class="fa fa-warning fa-lg text-muted m-r-5"></i> <span class="f-w-600 text-inverse">Error 404! Page not found.</span></div>';
 var handleLoadPage = function(e) {
-    Pace.restart();
-    var t = e.replace("#", "");
-    $(".jvectormap-label, .jvector-label, .AutoFill_border, #gritter-notice-wrapper, .ui-autocomplete, .colorpicker, .FixedHeader_Header, .FixedHeader_Cloned .lightboxOverlay, .lightbox").remove();
-    $.ajax({type: "POST", url: t, dataType: "html", success: function(e) {
-        $("#ajax-content").html(e);
-        $("html, body").animate({scrollTop: $("body").offset().top}, 250)
-    },error: function(e, t, n) {
-        $("#ajax-content").html(default_content)
-    }})
+    if (e != "") {
+        Pace.restart();
+        var t = e.replace("#", "");
+        $(".jvectormap-label, .jvector-label, .AutoFill_border, #gritter-notice-wrapper, .ui-autocomplete, .colorpicker, .FixedHeader_Header, .FixedHeader_Cloned .lightboxOverlay, .lightbox").remove();
+        $.ajax({type: "GET", url: t, dataType: "html", success: function(e) {
+            $("#ajax-content").html(e);
+            handleSubmitPage(window.location.hash);
+            handleUser();
+            $("html, body").animate({scrollTop: $("body").offset().top}, 250)
+        }, error: function(e, t, n) {
+            $("#ajax-content").html(default_content)
+        }});
+    }
+};
+
+var handleSubmitPage = function(e) {
+    if (e != "") {
+        var ajaxForms = "form[action^=#]";
+        $.each($("#ajax-content " + ajaxForms), function(i, f) {
+            $(f).submit(function(event) {
+                var hash = window.location.hash;
+                event.stopPropagation();
+                event.stopImmediatePropagation();
+                event.preventDefault();
+                $.post($(f).attr('action').replace('#', ''), $(f).serialize(), function(e) {
+                    var $toastr;
+                    if ($(e).find(ajaxForms).length > 0) {
+                        $("#ajax-content").html(e);
+                        handleSubmitPage(hash);
+                        $("html, body").animate({scrollTop: $("body").offset().top}, 250)
+                        $toastr = $("[data-toastrid=error]");
+                        toastr['error']($toastr.text());
+                    } else {
+                        handleLoadPage(hash);
+                        $toastr = $("[data-toastrid=success]");
+                        toastr['success']($toastr.text());
+                    }
+                }).fail(function() {
+                    $("#ajax-content").html(default_content)
+                });
+            });
+        });
+    }
+
+};
+
+var handleUser = function() {
+    $.get( "/me", function(data) {
+        var user = JSON.parse(data);
+        $("[data-userfullname=true]").each(function() {
+            $(this).html(user.firstname + " " + user.lastname);
+        });
+    });
+};
+
+var handleMessages = function() {
+    $.get( "/messages", function(data) {
+        // to be implemented
+    });
 };
 
 var handleCheckPageLoadUrl = function(e) {
@@ -513,6 +584,7 @@ var App = function() {
         handleHashChange();
         handleIEFullHeightContent();
         handleUnlimitedTabsRender();
+        handleToastrConf();
         $.ajaxSetup({cache: true})
     },
         setPageTitle: function(e) {
