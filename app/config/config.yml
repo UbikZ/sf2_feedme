@@ -37,7 +37,7 @@ twig:
 assetic:
     debug:          "%kernel.debug%"
     use_controller: false
-    bundles:        ['LaunchingBundle', 'FeedmeUserBundle', 'AppBundle']
+    bundles:        ['LaunchingBundle', 'FeedmeUserBundle', 'AppBundle', 'FOSUserBundle']
     # Assets
     assets:
         # Fonts (hack)
@@ -75,11 +75,15 @@ assetic:
             inputs:
                 - '@AppBundle/Resources/public/js/app.js'
                 - '@AppBundle/Resources/public/js/plugins/jquery.hashchange.js'
+                - '@AppBundle/Resources/public/components/toastr/toastr.min.js'
+                - '@AppBundle/Resources/public/components/parsleyjs/dist/parsley.min.js'
         global_css:
             inputs:
                 - '@AppBundle/Resources/public/css/style.css'
                 - '@AppBundle/Resources/public/css/style-responsive.css'
                 - '@AppBundle/Resources/public/css/theme/default.css'
+                - '@AppBundle/Resources/public/components/toastr/toastr.min.css'
+                - '@AppBundle/Resources/public/css/theme/parsley.css'
         dashboard_js:
             inputs:
                 - '@AppBundle/Resources/public/js/dashboard.js'
@@ -155,6 +159,9 @@ fos_user:
                 sender_name:  Feedme Mailer Registration
         form:
             type: feedme_user_registration
+    profile:
+        form:
+            type: feedme_user_profile
     resetting:
         email:
             from_email:

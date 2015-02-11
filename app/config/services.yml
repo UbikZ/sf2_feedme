@@ -9,6 +9,12 @@ services:
         arguments:  [%fos_user.model.user.class%]
         tags:
             - { name: form.type, alias: feedme_user_registration  }
+    feedmeuserbundle.profile.form.type:
+        class:  Feedme\FeedmeUserBundle\Form\Type\ProfileFormType
+        arguments:  [%fos_user.model.user.class%]
+        tags:
+            - { name: form.type, alias: feedme_user_profile  }
+
 #    service_name:
 #        class: AppBundle\Directory\ClassName
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
