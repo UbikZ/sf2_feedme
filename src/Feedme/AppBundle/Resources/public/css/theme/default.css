@@ -71,3 +71,48 @@
     border-top-color: #00acac;
     border-left-color: #00acac;
 }
+
+.panel-inverse>.panel-heading {
+    moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #ffffff;
+    border-color: #e7eaec;
+    border-image: none;
+    border-style: solid solid none;
+    border-width: 4px 0px 0;
+    color: inherit;
+    margin-bottom: 0;
+    padding: 14px 15px 7px;
+    height: 48px;
+}
+
+h4.panel-title {
+    display: inline-block;
+    font-size: 14px;
+    margin: 0 0 7px;
+    padding: 0;
+    text-overflow: ellipsis;
+    float: left;
+}
+
+.panel-body.no-padding,
+.panel-body.panel-form,
+.panel-body.panel-full-width,
+.panel-body.panel-table {
+    background-color: #ffffff;
+    color: inherit;
+    padding: 15px 20px 20px 20px;
+    border-color: #e7eaec;
+    border-image: none;
+    border-style: solid solid none;
+    border-width: 1px 0px;
+}
+
+.form-horizontal.form-bordered .form-group>.control-label,
+.form-horizontal.form-bordered .form-group>div {
+    border-right: none;
+    border-left: none;
+}
+
