@@ -40,7 +40,7 @@ class DefaultController extends Controller
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function userAction(Request $request)
+    public function asynchUserAction(Request $request)
     {
         if (!$request->isXmlHttpRequest()) {
             $this->createNotFoundException();
