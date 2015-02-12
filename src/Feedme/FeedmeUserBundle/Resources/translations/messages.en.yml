@@ -33,6 +33,7 @@ profile:
             one of your e-mail address to an avatar.
         go: Check Gravatar
 form:
+    imageurl: Background Url
     username: Username
     email: Email
     firstname: Firstname

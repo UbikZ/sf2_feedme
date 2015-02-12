@@ -27,6 +27,7 @@ class ProfileFormType extends FOSUserProfileFormType
             ->add('comment', 'textarea', ['label' => 'form.comment', 'required' => false, 'attr' => ['rows' => 4, 'cols' => 49]])
             ->add('location', null, ['label' => 'form.location', 'required' => false])
             ->add('website', 'url', ['label' => 'form.website', 'required' => false])
+            ->add('backgroundImageUrl', 'url', ['label' => 'form.imageurl', 'required' => false])
         ;
     }
 
