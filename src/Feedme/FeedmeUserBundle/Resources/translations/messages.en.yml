@@ -24,6 +24,8 @@ profile:
         desc: You can change information about your profile
     user:
         title:  Account Manager
+    background:
+        title:  Background Image Preview
     gravatar:
         title:  Avatar
         label:  Use Gravatar
