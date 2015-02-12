@@ -1,15 +1,15 @@
 <div class="col-md-4">
     {% embed 'AppBundle::_partials/panel.html.twig' with {'title': 'wall.user.title'} %}
         {% block panel_content %}
-        <div class="panel-body">
-            <div class="">
-                <img src=""/>
+            <div>
+                <img src="" class="img-responsive" data-ajaxload-user="bg-image"/>
             </div>
-            <h5 class="m-t-10" data-ajaxload-user="fullname"></h5>
-            <span class="m-t-10"><i class="fa fa-map-marker"></i> <span data-ajaxload-user="fullname"></span></span>
-            <p class="m-t-10"><strong>{{ 'wall.user.aboutme'|trans }}</strong></p>
-            <p data-ajaxload-user="comment"></p>
-        </div>
+            <div class="panel-body">
+                <h5 class="m-t-10" data-ajaxload-user="fullname"></h5>
+                <span class="m-t-10"><i class="fa fa-map-marker"></i> <span data-ajaxload-user="location"></span></span>
+                <p class="m-t-10"><strong>{{ 'wall.user.aboutme'|trans }}</strong></p>
+                <p data-ajaxload-user="comment"></p>
+            </div>
         {% endblock %}
     {% endembed %}
 </div>
