@@ -29,5 +29,6 @@
         <div class="m-t-20">
             {{'not_member'|trans({'%register_link%': url('fos_user_registration_register')}, 'messages')|raw }}
         </div>
+        {{'resetting.redirect'|trans({'%reset_link%': url('fos_user_resetting_request')}, 'messages')|raw }}
     </form>
 {% endblock fos_user_content %}
