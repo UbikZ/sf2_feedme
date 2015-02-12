@@ -379,7 +379,7 @@ var handleBreadcrumb = function(e) {
             $els = $enabled.parents('li');
         $breadcrumb.html('');
         $breadcrumb.append('<li><a href="#">' + $els.eq(0).text() + '</a>');
-        $breadcrumb.append('<li><a href="#">' + $els.eq(1).find('a span').text() + '</a>');
+        $breadcrumb.append('<li class="active"><a href="#">' + $els.eq(1).find('a span').text() + '</a>');
     }
 };
 
