@@ -424,11 +424,21 @@ var globalHandlers = function() {
 var handleUser = function() {
     $.get( "/me", function(data) {
         var user = JSON.parse(data);
-        $("[data-userfullname=true]").each(function() {
-            $(this).html(user.firstname + " " + user.lastname);
+        $("[data-ajaxload-user]").each(function() {
+            var scope = $(this).data('ajaxload-user');
+            switch (scope) {
+                case 'fullname':
+                    $(this).html(user.firstname + " " + user.lastname);
+                    break;
+                default:
+                    if (user[scope] !== 'undefined') {
+                        $(this).html(user[scope]);
+                    }
+                    break;
+            }
         });
-        $("[data-gravatar]").each(function() {
-            var size = $(this).data('gravatar');
+        $("[data-ajaxload-gravatar]").each(function() {
+            var size = $(this).data('ajaxload-gravatar');
             $(this).attr('src', user.gravatar[size]);
         });
     });

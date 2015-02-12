@@ -6,10 +6,10 @@
         <ul class="nav">
             <li class="nav-profile">
                 <div class="image">
-                    <a href="#"><img src="" alt="gravatar" data-gravatar="80"></a>
+                    <a href="#"><img src="" alt="gravatar" data-ajaxload-gravatar="80"></a>
                 </div>
                 <div class="info">
-                    <span data-userfullname="true"></span>
+                    <span data-ajaxload-user="fullname"></span>
                     <small>
                         {% if is_granted("ROLE_SUPER_ADMIN") %}
                             {{ 'sidebar.superadmin'|trans }}
@@ -69,7 +69,7 @@
                     <span>{{ 'sidebar.social.label' }}</span>
                 </a>
                 <ul class="sub-menu">
-                    <li><a href="#" data-toggle="ajax">{{ 'sidebar.social.wall' }}</a></li>
+                    <li><a href="#{{ path('wall') }}" data-toggle="ajax">{{ 'sidebar.social.wall' }}</a></li>
                     <li><a href="#" data-toggle="ajax">{{ 'sidebar.social.friends' }}</a></li>
                 </ul>
             </li>

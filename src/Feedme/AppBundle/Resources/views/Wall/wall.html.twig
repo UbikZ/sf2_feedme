@@ -1,0 +1,15 @@
+{% extends "AppBundle::xhr_layout.html.twig" %}
+
+{% block content %}
+    <div id="content" class="content">
+        {% include 'AppBundle::_partials/breadcrumb.html.twig' with {'title': 'wall.title', 'subtitle': 'wall.desc'} %}
+        {% block wall_content %}
+        <div class="row">
+            {% include "AppBundle:Wall:wall_profile.html.twig" %}
+            {% include "AppBundle:Wall:wall_content.html.twig" %}
+        </div>
+        {% endblock wall_content %}
+    </div>
+{% endblock %}
+
+
