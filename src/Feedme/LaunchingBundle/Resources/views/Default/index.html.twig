@@ -59,7 +59,7 @@
                         <li class="dropdown">
                             <a data-toggle="dropdown">{{ user.username }} <b class="caret"></b></a>
                             <ul class="dropdown-menu dropdown-menu-left animated fadeInDown">
-                                <li><a href="{{ url('app') }}">{{ 'user.dashboard'|trans }}</a></li>
+                                <li><a href="{{ url('app') }}#/wall">{{ 'user.dashboard'|trans }}</a></li>
                                 <li><a href="{{ url('fos_user_security_logout') }}">{{ 'user.logout'|trans }}</a></li>
                             </ul>
                         </li>
@@ -93,7 +93,7 @@
                     {{'resetting.redirect'|trans({'%reset_link%': url('fos_user_resetting_request')})|raw }}
                 </p>
             {% else %}
-                <a href="{{ url('app') }}" class="btn btn-outline">{{ 'home.dashboard'|trans }}</a><br />
+                <a href="{{ url('app') }}#/wall" class="btn btn-outline">{{ 'home.dashboard'|trans }}</a><br />
             {% endif %}
             <br />
         </div>
