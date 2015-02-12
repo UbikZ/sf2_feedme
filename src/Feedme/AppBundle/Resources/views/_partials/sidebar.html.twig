@@ -57,8 +57,7 @@
                     <span>{{ 'sidebar.account.label'|trans }}</span>
                 </a>
                 <ul class="sub-menu">
-                    <li><a href="#/profile/edit" data-toggle="ajax">{{ 'sidebar.account.profile'|trans }}</a></li>
-                    <li><a href="#" data-toggle="ajax">{{ 'sidebar.account.settings' }}</a></li>
+                    <li><a href="#{{ path('fos_user_profile_edit') }}" data-toggle="ajax">{{ 'sidebar.account.profile'|trans }}</a></li>
                     <li><a href="#" data-toggle="ajax">{{ 'sidebar.account.notifications' }}</a></li>
                     <li><a href="#" data-toggle="ajax">{{ 'sidebar.account.security' }}</a></li>
                 </ul>
