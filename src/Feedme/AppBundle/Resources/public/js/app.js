@@ -415,6 +415,12 @@ var handleSubmitPage = function(e) {
 
 };
 
+var globalHandlers = function() {
+    "use strict";
+    handleUser();
+    handleMessages();
+};
+
 var handleUser = function() {
     $.get( "/me", function(data) {
         var user = JSON.parse(data);
@@ -429,15 +435,16 @@ var handleUser = function() {
 };
 
 var handleMessages = function() {
-    $.get( "/messages", function(data) {
+    /*$.get( "/messages", function(data) {
         // to be implemented
-    });
+    });*/
 };
 
 var handleCheckPageLoadUrl = function(e) {
     e = e ? e : "";
     if (e === "") {
         $("#ajax-content").html(default_content)
+        globalHandlers();
     } else {
         $('.sidebar [href="' + e + '"][data-toggle=ajax]').trigger("click");
         handleLoadPage(e)
