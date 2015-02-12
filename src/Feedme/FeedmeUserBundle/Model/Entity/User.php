@@ -71,6 +71,12 @@ class User extends BaseUser
     protected $websiteDisplay = true;
 
     /**
+     * @ORM\Column(type="string", nullable=true)
+     * @var string
+     */
+    protected $backgroundImageUrl;
+
+    /**
      * @ORM\OneToOne(targetEntity="Feedme\AppBundle\Model\Entity\Wall")
      * @ORM\JoinColumn(name="wall_id", referencedColumnName="id")
      * @var Wall
@@ -227,5 +233,21 @@ class User extends BaseUser
     public function setFirstname($firstname)
     {
         $this->firstname = $firstname;
+    }
+
+    /**
+     * @return string
+     */
+    public function getBackgroundImageUrl()
+    {
+        return $this->backgroundImageUrl;
+    }
+
+    /**
+     * @param string $backgroundImageUrl
+     */
+    public function setBackgroundImageUrl($backgroundImageUrl)
+    {
+        $this->backgroundImageUrl = $backgroundImageUrl;
     }
 }
