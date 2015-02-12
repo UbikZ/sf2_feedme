@@ -89,6 +89,9 @@
             {% if not is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                 <a href="{{ url('fos_user_registration_register') }}" class="btn btn-theme">{{ 'home.signin'|trans }}</a>
                 <a href="{{ url('fos_user_security_login') }}" class="btn btn-outline">{{ 'home.login'|trans }}</a><br />
+                <p class="m-t-20">
+                    {{'resetting.redirect'|trans({'%reset_link%': url('fos_user_resetting_request')})|raw }}
+                </p>
             {% else %}
                 <a href="{{ url('app') }}" class="btn btn-outline">{{ 'home.dashboard'|trans }}</a><br />
             {% endif %}
