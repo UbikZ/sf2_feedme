@@ -430,6 +430,9 @@ var handleUser = function() {
                 case 'fullname':
                     $(this).html(user.firstname + " " + user.lastname);
                     break;
+                case 'bg-image':
+                    $(this).attr('src', user.backgroundImageUrl);
+                    break;
                 default:
                     if (user[scope] !== 'undefined') {
                         $(this).html(user[scope]);
