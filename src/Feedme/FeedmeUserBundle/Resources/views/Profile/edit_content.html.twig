@@ -40,6 +40,14 @@
                 </div>
             {% endblock %}
         {% endembed %}
+        {% embed 'AppBundle::_partials/panel.html.twig' with {'title': 'profile.background.title'} %}
+            {% block panel_content %}
+                <div class="panel-body">
+                    <img src="" class="img-responsive" data-ajaxload-user="bg-image"/>
+                </div>
+            {% endblock %}
+        {% endembed %}
+
     </div>
     <!-- end col-6 -->
-</div>
+</div>s
