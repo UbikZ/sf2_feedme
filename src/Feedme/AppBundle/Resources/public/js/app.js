@@ -407,7 +407,7 @@ var handleSubmitPage = function(e) {
                         toastr['success']($toastr.text());
                     }
                 }).fail(function() {
-                    $("#ajax-content").html(default_content)
+                    $("#ajax-content").html(default_content);
                 });
             });
         });
@@ -421,30 +421,39 @@ var globalHandlers = function() {
     handleMessages();
 };
 
-var handleUser = function() {
-    var userId = $("[data-userid]").data('userid');
-    $.get( "/user" + (userId == "" ? "" : "/" + userId), function(data) {
-        var user = JSON.parse(data);
-        $("[data-ajaxload-user]").each(function() {
-            var scope = $(this).data('ajaxload-user');
-            switch (scope) {
-                case 'fullname':
-                    $(this).html(user.firstname + " " + user.lastname);
-                    break;
-                case 'bg-image':
-                    $(this).attr('src', user.backgroundImageUrl);
-                    break;
-                default:
-                    if (user[scope] !== 'undefined') {
-                        $(this).html(user[scope]);
-                    }
-                    break;
-            }
-        });
-        $("[data-ajaxload-gravatar]").each(function() {
-            var size = $(this).data('ajaxload-gravatar');
-            $(this).attr('src', user.gravatar[size]);
-        });
+var handleUser = function(id) {
+    var userurl = $("[data-userurl]").data('userurl'),
+        userId = (id == undefined) ? '' : id,
+        ajaxLoadUser = 'ajaxload-user' + userId,
+        ajaxGravatar = 'ajaxload-gravatar' + userId;
+    $.get(userurl + (userId == "" ? "" : "/" + userId), function(data) {
+        var result = JSON.parse(data);
+        if (result.success) {
+            var user = result.message;
+            $('[data-' + ajaxLoadUser + ']').each(function() {
+                var scope = $(this).data(ajaxLoadUser);
+                switch (scope) {
+                    case 'fullname':
+                        $(this).html(user.firstname + " " + user.lastname);
+                        break;
+                    case 'bg-image':
+                        $(this).attr('src', user.backgroundImageUrl);
+                        break;
+                    default:
+                        if (user[scope] !== 'undefined') {
+                            $(this).html(user[scope]);
+                        }
+                        break;
+                }
+            });
+            $('[data-' + ajaxGravatar + ']').each(function() {
+                var size = $(this).data(ajaxGravatar);
+                $(this).attr('src', user.gravatarImages[size]);
+            });
+        } else {
+            toastr['error'](result.errors.join('</br>'));
+            $("#ajax-content").html(default_content);
+        }
     });
 };
 
@@ -457,7 +466,7 @@ var handleMessages = function() {
 var handleCheckPageLoadUrl = function(e) {
     e = e ? e : "";
     if (e === "") {
-        $("#ajax-content").html(default_content)
+        $("#ajax-content").html(default_content);
         globalHandlers();
     } else {
         $('.sidebar [href="' + e + '"][data-toggle=ajax]').trigger("click");
