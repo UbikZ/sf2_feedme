@@ -17,11 +17,12 @@ class WallController extends Controller
 {
     /**
      * @Route("/wall", name="wall")
+     * @Route("/wall/{id}", name="wall_id")
      * @param Request $request
      * @return JsonResponse
      */
     public function asynchWallAction(Request $request)
     {
-        return $this->render('AppBundle:Wall:wall.html.twig');
+        return $this->render('AppBundle:Wall:wall.html.twig', ['userId' => $request->get('id')]);
     }
 }
