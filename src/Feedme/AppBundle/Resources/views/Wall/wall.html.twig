@@ -1,7 +1,7 @@
 {% extends "AppBundle::xhr_layout.html.twig" %}
 
 {% block content %}
-    <div id="content" class="content" data-userid="{{ userId }}">
+    <div id="content" class="content">
         {% include 'AppBundle::_partials/breadcrumb.html.twig' with {'title': 'wall.title', 'subtitle': 'wall.desc'} %}
         {% block wall_content %}
         <div class="row">
@@ -10,6 +10,16 @@
         </div>
         {% endblock wall_content %}
     </div>
+{% endblock %}
+
+{% block javascripts_bottom %}
+<script>
+    $(document).ready(function() {
+        {% if userId is not null %}
+            handleUser({{ userId }});
+        {% endif %}
+    });
+</script>
 {% endblock %}
 
 
