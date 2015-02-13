@@ -77,6 +77,11 @@ class User extends BaseUser
     protected $backgroundImageUrl;
 
     /**
+     * @var array
+     */
+    protected $gravatarImages;
+
+    /**
      * @ORM\OneToOne(targetEntity="Feedme\AppBundle\Model\Entity\Wall")
      * @ORM\JoinColumn(name="wall_id", referencedColumnName="id")
      * @var Wall
@@ -249,5 +254,22 @@ class User extends BaseUser
     public function setBackgroundImageUrl($backgroundImageUrl)
     {
         $this->backgroundImageUrl = $backgroundImageUrl;
+    }
+
+
+    /**
+     * @return array
+     */
+    public function getGravatarImages()
+    {
+        return $this->gravatarImages;
+    }
+
+    /**
+     * @param array $gravatarImages
+     */
+    public function setGravatarImages($gravatarImages)
+    {
+        $this->gravatarImages = $gravatarImages;
     }
 }
