@@ -422,7 +422,8 @@ var globalHandlers = function() {
 };
 
 var handleUser = function() {
-    $.get( "/me", function(data) {
+    var userId = $("[data-userid]").data('userid');
+    $.get( "/user" + (userId == "" ? "" : "/" + userId), function(data) {
         var user = JSON.parse(data);
         $("[data-ajaxload-user]").each(function() {
             var scope = $(this).data('ajaxload-user');
