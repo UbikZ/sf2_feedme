@@ -1,0 +1,16 @@
+{% extends "AppBundle::error_layout.html.twig" %}
+
+{% block content %}
+    <!-- begin error -->
+    <div class="error">
+        <div class="error-code m-b-10">{{ status_code }} <i class="fa fa-warning"></i></div>
+        <div class="error-content">
+            <div class="error-message">An error ocurred...</div>
+            <div class="error-desc m-b-20">{{ status_text }}</div>
+            <div>
+                <a href="{{ url('app') }}#/wall" class="btn btn-theme">Go Back to Home Page</a>
+            </div>
+        </div>
+    </div>
+    <!-- end error -->
+{% endblock %}
