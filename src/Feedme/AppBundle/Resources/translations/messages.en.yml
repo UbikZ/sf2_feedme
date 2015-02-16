@@ -27,8 +27,17 @@ sidebar:
         notifications:  Notifications
         security: Security
     social:
+        label: Social
         wall: Wall
         friends:  Friends
+wall:
+    title:  Wall
+    desc: Checkout profile information and messages from people
+    user:
+        title:  Profile Information
+        aboutme:  About Me
+    wall:
+        title:  Express yourself
 toastr:
     success:  Your modifications have been saved.
     error:  Your modifications could not be saved.
