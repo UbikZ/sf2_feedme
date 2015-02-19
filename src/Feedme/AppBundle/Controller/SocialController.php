@@ -10,10 +10,10 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
- * Class ProfileController
+ * Class SocialController
  * @package Feedme\AppBundle\Controller
  */
-class WallController extends Controller
+class SocialController extends Controller
 {
     /**
      * @Route("/wall", name="wall")
@@ -23,6 +23,17 @@ class WallController extends Controller
      */
     public function asynchWallAction(Request $request)
     {
-        return $this->render('AppBundle:Wall:wall.html.twig', ['userId' => $request->get('id')]);
+        return $this->render('AppBundle:Social:wall.html.twig', ['userId' => $request->get('id')]);
     }
+
+    /**
+     * @Route("/members", name="members")
+     * @return JsonResponse
+     */
+    public function asynchMembersAction()
+    {
+
+        return $this->render('AppBundle:Social:members.html.twig', ['members' => []]);
+    }
+
 }

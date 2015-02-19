@@ -1,0 +1,22 @@
+{% extends "AppBundle::xhr_layout.html.twig" %}
+
+{% block content %}
+    <div id="content" class="content">
+        {% include 'AppBundle::_partials/breadcrumb.html.twig' with {'title': 'members.title', 'subtitle': 'members.desc'} %}
+        {% embed 'AppBundle::_partials/panel_head.html.twig' with {'title': 'members.search.title'} %}
+            {% block panel_content %}
+                <form   action="#{{ path('members') }}" method="POST"
+                        class="form-horizontal form-bordered m-b-35" name="members-form">
+                    <div class="col-md-12 col-sm-12">
+                        <input type="text" id="" name="" required="required" placeholder="{{ 'members.search.placeholder'|trans }}" class="form-control">
+                    </div>
+                </form>
+            {% endblock %}
+        {% endembed %}
+        {% if members is iterable %}
+            {% for member in members %}
+                test
+            {% endfor %}
+        {% endif %}
+    </div>
+{% endblock %}

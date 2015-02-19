@@ -116,3 +116,24 @@ h4.panel-title {
     border-left: none;
 }
 
+.panel-heading {
+    background-color: #ffffff;
+    margin-right: -25px;
+    margin-left: -25px;
+    border-top: 0;
+    padding: 0px 10px 20px 25px;
+    border-bottom: 1px solid #e7eaec !important;
+    border-top: 1px solid #e7eaec !important;
+}
+
+.panel-heading-title {
+    font-size: 14px;
+    margin: 0 0 7px;
+    padding: 0;
+    text-overflow: ellipsis;
+    line-height: 20px;
+    color: inherit;
+}
+
+
+
