@@ -14,4 +14,6 @@ class User
     public $firstname;
     /** @var  string */
     public $lastname;
+    /** @var  string */
+    public $username;
 }
