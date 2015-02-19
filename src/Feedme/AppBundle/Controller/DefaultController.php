@@ -46,7 +46,7 @@ class DefaultController extends AbstractController
 
         $filter = new UserFilter();
         $filter->id = $request->get('id', $this->getUser()->getId());
-        $resultUser = $this->get('feedme.user.manager')->findOne($filter);
+        $resultUser = $this->get('feedme.user.service')->findOne($filter);
         $serializer = new Serializer([new GetSetMethodNormalizer()], [new JsonEncoder()]);
 
         return new JsonResponse($serializer->serialize($resultUser, 'json'));
