@@ -116,7 +116,7 @@ h4.panel-title {
     border-left: none;
 }
 
-.panel-heading {
+.panel-head {
     background-color: #ffffff;
     margin-right: -25px;
     margin-left: -25px;
@@ -126,7 +126,7 @@ h4.panel-title {
     border-top: 1px solid #e7eaec !important;
 }
 
-.panel-heading-title {
+.panel-head-title {
     font-size: 14px;
     margin: 0 0 7px;
     padding: 0;
