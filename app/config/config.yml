@@ -148,8 +148,6 @@ swiftmailer:
 
 # FOSUser Configuration
 fos_user:
-    service:
-        user_manager: feedme.user.manager
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: main
     user_class: Feedme\FeedmeUserBundle\Model\Entity\User

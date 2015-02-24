@@ -2,7 +2,6 @@
 # http://symfony.com/doc/current/book/service_container.html
 parameters:
     feedmeuser_service.class: Feedme\FeedmeUserBundle\Model\Service\FeedmeUserService
-    feedmeuser_manager.class: Feedme\FeedmeUserBundle\Model\Manager\FeedmeUserManager
 services:
     feedmeuserbundle.registration.form.type:
         class:  Feedme\FeedmeUserBundle\Form\Type\RegistrationFormType
@@ -14,9 +13,6 @@ services:
         arguments:  [%fos_user.model.user.class%]
         tags:
             - { name: form.type, alias: feedme_user_profile  }
-    feedme.user.manager:
-        class:  %feedmeuser_manager.class%
-        arguments: ["@security.encoder_factory", "@fos_user.util.username_canonicalizer", "@fos_user.util.email_canonicalizer", "@fos_user.entity_manager", %fos_user.model.user.class%]
     feedme.user.service:
         class:  %feedmeuser_service.class%
         arguments:  ["@feedme.user.manager", "@translator", "@gravatar.api"]

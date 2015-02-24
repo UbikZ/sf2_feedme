@@ -2,12 +2,14 @@
 
 namespace Feedme\FeedmeUserBundle\Model\Service;
 
+use Doctrine\ORM\EntityManager;
 use Feedme\FeedmeUserBundle\Model\Manager\FeedmeUserManager;
+use Feedme\FeedmeUserBundle\Model\Manager\FeedmeUserRepository;
 use Feedme\FeedmeUserBundle\Model\Message\Result;
 use Feedme\FeedmeUserBundle\Model\Service\Filter\User as UserFilter;
 use Feedme\FeedmeUserBundle\Model\Entity\User;
+use FOS\UserBundle\Model\UserManager;
 use Ornicar\GravatarBundle\GravatarApi;
-use Symfony\Component\Debug\Debug;
 use Symfony\Component\Translation\TranslatorInterface;
 
 /**
@@ -17,9 +19,14 @@ use Symfony\Component\Translation\TranslatorInterface;
 class FeedmeUserService
 {
     /**
-     * @var FeedmeUserManager
+     * @var UserManager
      */
     protected $userManager;
+
+    /**
+     * @var FeedmeUserRepository
+     */
+    protected $userRepository;
 
     /**
      * @var TranslatorInterface
@@ -32,12 +39,13 @@ class FeedmeUserService
     protected $gravatar;
 
     /**
-     * @param FeedmeUserManager $manager
+     * @param UserManager $manager
      * @param TranslatorInterface $translator
      * @param GravatarApi $gravatar
      */
-    public function __construct(FeedmeUserManager $manager, TranslatorInterface $translator, GravatarApi $gravatar)
+    public function __construct(UserManager $manager, EntityManager $em, TranslatorInterface $translator, GravatarApi $gravatar)
     {
+        $this->userManager = $em->getRepository()
         $this->userManager = $manager;
         $this->translator = $translator;
         $this->gravatar = $gravatar;
@@ -89,7 +97,7 @@ class FeedmeUserService
         return $result;
     }
 
-    public function findBy(UserFilter $filter)
+    public function findBy(UserFilter $filter, $like = false)
     {
         $result = new Result();
         $params = $this->parseFilter($filter);
